@@ -9,16 +9,16 @@
 
 ## Executive Summary
 
-This report compares six AI-powered development tools against standardized criteria covering deployment, code ownership, framework support, collaboration, and 16 other dimensions. Each tool was evaluated on 103 decision questions, scored on a 100-point scale with weighted priorities (MUST-HAVE: 40 points, SHOULD-HAVE: 45 points, NICE-TO-HAVE: 15 points).
+This report compares six AI-powered development tools against standardized criteria covering deployment, code ownership, framework support, collaboration, and 17 other dimensions. Each tool was evaluated on 103 decision questions, scored on a 100-point scale with weighted priorities (MUST-HAVE: 40 points, SHOULD-HAVE: 45 points, NICE-TO-HAVE: 15 points).
 
 ### Overall Rankings
 
 | Rank | Tool | Total Score | MUST-HAVE | SHOULD-HAVE | NICE-TO-HAVE | Status |
 |------|------|-------------|-----------|-------------|--------------|--------|
-| 1 | **Cursor** | 84/100 | 40/40 ✅ | 36/45 | 8/15 | ✅ All critical passed |
-| 2 | **Windsurf** | 84/100 | 40/40 ✅ | 36/45 | 8/15 | ✅ All critical passed |
-| 3 | **Bolt.new** | 73/100 | 40/40 ✅ | 25/45 | 8/15 | ✅ All critical passed |
-| 4 | **Replit** | 69/100 | 40/40 ✅ | 22/45 | 7/15 | ✅ All critical passed |
+| 1 | **Replit** | 85/100 | 40/40 ✅ | 35.5/45 | 9.5/15 | ✅ All critical passed |
+| 2 | **Cursor** | 84/100 | 40/40 ✅ | 36/45 | 8/15 | ✅ All critical passed |
+| 3 | **Windsurf** | 84/100 | 40/40 ✅ | 36/45 | 8/15 | ✅ All critical passed |
+| 4 | **Bolt.new** | 73/100 | 40/40 ✅ | 25/45 | 8/15 | ✅ All critical passed |
 | 5 | **Lovable** | 60/100 | 30/40 ⚠️ | 23/45 | 7/15 | ⚠️ 1 critical failed |
 | 6 | **Base44** | 43.5/100 | 10/40 ❌ | 26/45 | 7.5/15 | ❌ 3 critical failed |
 
@@ -39,145 +39,371 @@ This report compares six AI-powered development tools against standardized crite
 
 ---
 
-## Detailed Comparison Matrix
+## Detailed Comparison by Metric
 
 ### 1. Deployment Model
 
-| Tool | Local IDE | Web IDE | Self-Host | Air-Gap | AI Processing |
-|------|-----------|---------|-----------|---------|---------------|
-| **Cursor** | ✅ Desktop | ❌ No | ❌ No (deprecated) | ❌ No | Cloud API |
-| **Windsurf** | ✅ Desktop | ❌ No | ❌ No (deprecated May 2025) | ❌ No | Cloud API |
-| **Bolt.new** | ❌ No | ✅ Browser | ❌ No | ❌ No | Cloud API |
-| **Replit** | ❌ No | ✅ Browser | ❌ No (enterprise option) | ❌ No | Cloud API |
-| **Lovable** | ❌ No | ✅ Browser | ❌ No | ❌ No | Cloud API |
-| **Base44** | ❌ No | ✅ Browser | ❌ No | ❌ No | Cloud API |
+| Tool | Self-Host IDE<br><sub>🟢 NICE-TO-HAVE</sub> | Deploy Outside Platform<br><sub>🔴 MUST-HAVE</sub> | Air-Gap Support<br><sub>🟢 NICE-TO-HAVE</sub> | Local Desktop App<br><sub>🟡 SHOULD-HAVE</sub> | IDE Location<br><sub>🟡 SHOULD-HAVE</sub> | AI Processing<br><sub>🟡 SHOULD-HAVE</sub> | Web Version<br><sub>🟢 NICE-TO-HAVE</sub> |
+|------|-------------|---------------------|----------------|------------------|--------------|----------------|--------------|
+| **Cursor** | ❌ No (deprecated) | ✅ Yes | ❌ No | ✅ Desktop | Local | Cloud API | ❌ No |
+| **Windsurf** | ❌ No (deprecated) | ✅ Yes | ❌ No | ✅ Desktop | Local | Cloud API | ❌ No |
+| **Bolt.new** | ❌ No | ✅ Yes | ❌ No | ❌ No | Cloud (browser) | Cloud API | ✅ Yes |
+| **Replit** | ❌ No | ✅ Yes | ❌ No | ❌ No | Cloud (browser) | Cloud API | ✅ Yes |
+| **Lovable** | ❌ No | ⚠️ Requires Supabase | ❌ No | ❌ No | Cloud (browser) | Cloud API | ✅ Yes |
+| **Base44** | ❌ No | ❌ Requires platform | ❌ No | ❌ No | Cloud (browser) | Cloud API | ✅ Yes |
 
-**Key Insight**: Desktop IDEs (Cursor, Windsurf) offer better performance and offline editing; cloud IDEs (Bolt.new, Replit, Lovable, Base44) enable zero-setup onboarding. No tool supports true air-gapped development—all require internet for AI features.
+**Key Insight**: Desktop IDEs (Cursor, Windsurf) offer better performance and offline editing; cloud IDEs (Bolt.new, Replit, Lovable, Base44) enable zero-setup onboarding. No tool supports true air-gapped development—all require internet for AI features. **Base44 fails critical requirement 1.1b** (cannot deploy outside platform).
 
-### 2. Code Ownership & Portability (CRITICAL)
+**Winner**: Cursor, Windsurf (desktop flexibility + cloud AI)
 
-| Tool | Export 100% | No Proprietary SDK | Standard Format | Runs Standalone |
-|------|-------------|-------------------|-----------------|-----------------|
-| **Cursor** | ✅ Yes | ✅ Yes | ✅ Yes | ✅ npm install only |
-| **Windsurf** | ✅ Yes | ✅ Yes | ✅ Yes | ✅ npm install only |
-| **Bolt.new** | ✅ Yes | ✅ Yes | ✅ Yes | ✅ npm install only |
-| **Replit** | ✅ Yes | ✅ Yes | ✅ Yes | ✅ npm install only |
-| **Lovable** | ✅ Yes | ⚠️ Partial (Supabase) | ✅ Yes | ⚠️ Requires Supabase |
-| **Base44** | ✅ Yes | ❌ @base44/sdk required | ✅ Yes | ❌ Requires Base44 backend |
+---
+
+### 2. Package Management
+
+| Tool | npm Support<br><sub>🟡 SHOULD-HAVE</sub> | cargo (Rust)<br><sub>🟢 NICE-TO-HAVE</sub> | Monorepo Support<br><sub>🟡 SHOULD-HAVE</sub> | pip (Python)<br><sub>🟢 NICE-TO-HAVE</sub> | Package Restrictions<br><sub>🟢 NICE-TO-HAVE</sub> |
+|------|------------|----------|----------------|----------|---------------------|
+| **Cursor** | ✅ Yes | ✅ Yes | ✅ Yes | ✅ Yes | ❌ Unrestricted |
+| **Windsurf** | ✅ Yes | ✅ Yes | ✅ Yes | ✅ Yes | ❌ Unrestricted |
+| **Bolt.new** | ✅ Yes | ❌ No | ⚠️ Limited | ❌ No | ❌ Unrestricted |
+| **Replit** | ✅ Yes | ✅ Yes | ✅ Yes | ✅ Yes (uv) | ❌ Unrestricted |
+| **Lovable** | ✅ Yes | ❌ No | ❌ No | ❌ No | ❌ Unrestricted |
+| **Base44** | ⚠️ Limited (AI approval) | ❌ No | ❌ No | ❌ No | ✅ Yes (restrictions exist) |
+
+**Key Insight**: Desktop IDEs and Replit support all major package managers. Cloud platforms (Bolt.new, Lovable, Base44) focus on JavaScript/TypeScript only. **Base44 restricts package installation** requiring AI chat approval and CDN workarounds.
+
+**Winner**: Cursor, Windsurf, Replit (full polyglot package management)
+
+---
+
+### 3. Code Ownership & Portability (CRITICAL)
+
+| Tool | Export 100% Code<br><sub>🔴 MUST-HAVE</sub> | No Proprietary SDK<br><sub>🔴 MUST-HAVE</sub> | Standard Format<br><sub>🟡 SHOULD-HAVE</sub> | Runs Standalone<br><sub>🟡 SHOULD-HAVE</sub> | Export Version Control<br><sub>🟢 NICE-TO-HAVE</sub> |
+|------|-------------|-------------------|-----------------|-----------------|-----------------------|
+| **Cursor** | ✅ Yes | ✅ Yes | ✅ Yes | ✅ npm install only | ✅ Yes |
+| **Windsurf** | ✅ Yes | ✅ Yes | ✅ Yes | ✅ npm install only | ✅ Yes |
+| **Bolt.new** | ✅ Yes | ✅ Yes | ✅ Yes | ✅ npm install only | ✅ Yes |
+| **Replit** | ✅ Yes | ✅ Yes | ✅ Yes | ✅ npm install only | ✅ Yes |
+| **Lovable** | ✅ Yes | ⚠️ Partial (Supabase) | ✅ Yes | ⚠️ Requires Supabase | ✅ Yes |
+| **Base44** | ✅ Yes | ❌ @base44/sdk required | ✅ Yes | ❌ Requires Base44 backend | ✅ Yes |
 
 **Critical Failures**:
-- **Base44**: Cannot run independently; requires @base44/sdk + Base44 backend for database, auth, storage
-- **Lovable**: Requires Supabase for backend; cannot deploy to non-Supabase infrastructure
+- **Base44**: Cannot run independently; requires @base44/sdk + Base44 backend for database, auth, storage (**FAILS 3.2**)
+- **Lovable**: Requires Supabase for backend; cannot deploy to non-Supabase infrastructure (**PARTIAL FAIL 3.2**)
 
-**Winner**: Cursor, Windsurf, Bolt.new, Replit (all provide zero vendor lock-in)
+**Winner**: Cursor, Windsurf, Bolt.new, Replit (zero vendor lock-in)
 
-### 3. Framework & Language Support
+---
 
-| Tool | TypeScript | Rust | Python | Go | React | Vue | Backend Languages |
-|------|-----------|------|--------|----|----|-----|-------------------|
-| **Cursor** | ✅ First-class | ✅ Full LSP | ✅ Yes | ✅ Yes | ✅ Yes | ✅ Yes | Node.js, Python, Go, Rust |
-| **Windsurf** | ✅ First-class | ✅ Full LSP | ✅ Yes | ✅ Yes | ✅ Yes | ✅ Yes | Node.js, Python, Go, Rust |
-| **Bolt.new** | ✅ First-class | ❌ No | ❌ No | ❌ No | ✅ Yes | ✅ Yes | Node.js only |
-| **Replit** | ✅ First-class | ✅ Yes | ✅ Yes | ✅ Yes | ✅ Yes | ✅ Yes | 50+ languages |
-| **Lovable** | ✅ First-class | ❌ No | ❌ No | ❌ No | ✅ Yes | ❌ No | Node.js only (serverless) |
-| **Base44** | ✅ First-class | ❌ No | ❌ No | ❌ No | ✅ Yes | ❌ No | TypeScript only |
+### 4. Framework Support
+
+| Tool | TypeScript<br><sub>🟡 SHOULD-HAVE</sub> | Rust + LSP<br><sub>🟢 NICE-TO-HAVE</sub> | React/Next.js<br><sub>🟡 SHOULD-HAVE</sub> | Python<br><sub>🟡 SHOULD-HAVE</sub> | Go<br><sub>🟡 SHOULD-HAVE</sub> | Vue.js<br><sub>🟢 NICE-TO-HAVE</sub> | Angular<br><sub>🟢 NICE-TO-HAVE</sub> |
+|------|-----------|------|--------------|--------|----|----|---------|
+| **Cursor** | ✅ First-class | ✅ Full LSP | ✅ Yes | ✅ Yes | ✅ Yes | ✅ Yes | ✅ Yes |
+| **Windsurf** | ✅ First-class | ✅ Full LSP | ✅ Yes | ✅ Yes | ✅ Yes | ✅ Yes | ✅ Yes |
+| **Bolt.new** | ✅ First-class | ❌ No | ✅ Yes | ❌ No | ❌ No | ✅ Yes | ✅ Yes |
+| **Replit** | ✅ First-class | ✅ Yes | ✅ Yes | ✅ Yes | ✅ Yes | ✅ Yes | ✅ Yes |
+| **Lovable** | ✅ First-class | ❌ No | ✅ Yes (React) | ❌ No | ❌ No | ❌ No | ❌ No |
+| **Base44** | ✅ First-class | ❌ No | ✅ Yes (React) | ❌ No | ❌ No | ❌ No | ❌ No |
 
 **Key Insight**: 
 - **Polyglot Champions**: Cursor, Windsurf, Replit (support all target languages)
 - **JavaScript-Only**: Bolt.new, Lovable, Base44 (React/Node.js locked)
+- **Rust LSP**: Only Cursor, Windsurf, Replit provide full rust-analyzer integration
 
 **Winner**: Cursor, Windsurf (full stack + Rust LSP + Python + Go)
 
-### 4. AI Model Selection
+---
 
-| Tool | Default Model | Multiple Models | BYOK | Model Switching | Transparency |
-|------|---------------|----------------|------|-----------------|--------------|
-| **Cursor** | Claude 3.5 Sonnet | ✅ 8+ models | ✅ Yes | ✅ Yes | ✅ Yes |
-| **Windsurf** | Claude 3.5 Sonnet | ✅ Claude/GPT-4/SWE-1 | ✅ Yes | ✅ Yes | ✅ Yes |
-| **Bolt.new** | Claude 3.5 Sonnet | ⚠️ Limited (v1/current) | ❌ No | ⚠️ Agent versions only | ✅ Yes |
-| **Replit** | Claude 3.5 Sonnet | ⚠️ Limited | ❌ No | ❌ No | ⚠️ Partial |
+### 5. Git Integration
+
+| Tool | Native Git<br><sub>🟡 SHOULD-HAVE</sub> | Push to GitHub/GitLab<br><sub>🟡 SHOULD-HAVE</sub> | PR Workflows<br><sub>🟡 SHOULD-HAVE</sub> | Visual Git UI<br><sub>🟢 NICE-TO-HAVE</sub> | Branch Management<br><sub>🟢 NICE-TO-HAVE</sub> |
+|------|------------|----------------------|--------------|--------------|--------------------|
+| **Cursor** | ✅ Yes | ✅ GitHub only | ✅ Yes | ✅ Yes | ✅ Yes |
+| **Windsurf** | ✅ Yes | ✅ GitHub only | ✅ Yes (PR reviews) | ✅ Yes | ✅ Yes |
+| **Bolt.new** | ✅ Yes | ✅ GitHub only | ✅ Yes | ✅ Yes | ✅ Yes |
+| **Replit** | ✅ Yes | ✅ GitHub (GitLab CLI) | ✅ Yes | ✅ Yes | ✅ Yes |
+| **Lovable** | ✅ Yes | ✅ GitHub only | ✅ Yes | ✅ Yes | ✅ Yes |
+| **Base44** | ✅ Yes (Dec 2025) | ✅ GitHub only | ✅ Yes | ❌ No | ✅ Yes (via GitHub) |
+
+**Key Insight**: All tools support GitHub integration with 2-way sync. Only Windsurf has dedicated PR automation features. Replit supports GitLab via CLI (not native).
+
+**Winner (Real-time)**: Replit (GitHub + GitLab CLI)  
+**Winner (Enterprise)**: Windsurf (PR automation + RBAC)
+
+---
+
+### 6. Multi-file Context Awareness
+
+| Tool | Understand Relationships<br><sub>🟡 SHOULD-HAVE</sub> | Cross-file Refactor<br><sub>🟡 SHOULD-HAVE</sub> | Max Context Size<br><sub>🟡 SHOULD-HAVE</sub> | Consistency<br><sub>🟢 NICE-TO-HAVE</sub> | Codebase Analysis<br><sub>🟢 NICE-TO-HAVE</sub> |
+|------|----------------------|-------------------|------------------|-------------|---------------------|
+| **Cursor** | ✅ Yes | ✅ Yes | 200K tokens | ✅ Yes | ✅ Yes (RAG indexing) |
+| **Windsurf** | ✅ Yes | ✅ Yes (Cascade) | 200K tokens | ✅ Yes | ✅ Yes (RAG indexing) |
+| **Bolt.new** | ✅ Yes | ✅ Yes | 200K-500K tokens | ✅ Yes | ⚠️ Limited |
+| **Replit** | ✅ Yes | ✅ Yes | 128K tokens | ✅ Yes | ⚠️ Limited |
+| **Lovable** | ✅ Yes | ✅ Yes | Not documented | ✅ Yes | ⚠️ Limited |
+| **Base44** | ✅ Yes | ✅ Yes | Not documented | ✅ Yes | ⚠️ Limited |
+
+**Key Insight**: Cursor & Windsurf use RAG-based indexing for unlimited file awareness. Cloud platforms rely on context windows (128K-500K tokens). Bolt.new can hit "Project too large" errors requiring .boltignore.
+
+**Winner**: Cursor, Windsurf (RAG indexing + 200K context)
+
+---
+
+### 7. Backend Capabilities
+
+| Tool | Backend Languages<br><sub>🟡 SHOULD-HAVE</sub> | Database Schemas<br><sub>🟡 SHOULD-HAVE</sub> | API Generation<br><sub>🟡 SHOULD-HAVE</sub> | Full-Stack Scaffold<br><sub>🟢 NICE-TO-HAVE</sub> | Frontend/Backend Integration<br><sub>🟢 NICE-TO-HAVE</sub> |
+|------|------------------|-----------------|----------------|---------------------|----------------------------|
+| **Cursor** | All (manual coding) | ✅ Yes | ✅ Both (REST/GraphQL) | ✅ Yes | ✅ Yes |
+| **Windsurf** | All (manual coding) | ✅ Yes | ✅ Both (REST/GraphQL) | ✅ Yes | ✅ Yes |
+| **Bolt.new** | Node.js only | ✅ Yes (Supabase/Prisma) | ✅ Both | ✅ Yes | ✅ Yes |
+| **Replit** | Node.js, Python, Go, Rust | ✅ Yes (PostgreSQL) | ✅ Both | ✅ Yes | ✅ Yes |
+| **Lovable** | Node.js serverless | ✅ Yes (Supabase) | ✅ REST | ✅ Yes | ✅ Yes |
+| **Base44** | TypeScript only | ✅ Yes | ✅ REST | ✅ Yes | ✅ Yes |
+
+**Key Insight**: All tools generate full-stack applications. Desktop IDEs support all languages (user codes manually with AI assistance). Cloud platforms auto-generate but limit backend languages.
+
+**Winner**: Replit (automatic generation + 4 backend languages), Cursor/Windsurf (manual but unlimited)
+
+---
+
+### 8. Collaboration Features
+
+| Tool | Real-time Multiplayer<br><sub>🟢 NICE-TO-HAVE</sub> | Git Workflows<br><sub>🟡 SHOULD-HAVE</sub> | Role-based Permissions<br><sub>🟢 NICE-TO-HAVE</sub> | Multiple Devs Simultaneously<br><sub>🟢 NICE-TO-HAVE</sub> | Code Review<br><sub>🟢 NICE-TO-HAVE</sub> | Live Cursors<br><sub>🟢 NICE-TO-HAVE</sub> |
+|------|----------------------|---------------------|---------------------|----------------------------|--------------|-------------|
+| **Cursor** | ❌ No | ✅ Yes (GitHub) | ❌ No | ❌ No | ⚠️ Limited | ❌ No |
+| **Windsurf** | ❌ No | ✅ Yes (GitHub PR) | ✅ Teams+ | ❌ No | ✅ Yes (PR automation) | ❌ No |
+| **Bolt.new** | ✅ Yes (Teams) | ✅ Yes (GitHub) | ✅ Teams | ✅ Yes | ❌ No | ✅ Yes |
+| **Replit** | ✅ Yes | ✅ Yes (GitHub/GitLab) | ✅ Yes | ✅ Yes | ✅ Yes (via GitHub) | ✅ Yes |
+| **Lovable** | ✅ Yes | ✅ Yes (GitHub) | ✅ Yes | ✅ Yes | ❌ No | ✅ Yes |
+| **Base44** | ✅ Yes | ✅ Yes (GitHub Dec 2025) | ✅ Yes | ✅ Yes | ❌ No | ✅ Yes |
+
+**Key Insight**: Cloud platforms excel at real-time collaboration (Google Docs-style). Desktop IDEs rely on async Git workflows. Only Windsurf has dedicated PR review automation.
+
+**Winner (Real-time)**: Replit (multiplayer + Git workflows + RBAC)  
+**Winner (Enterprise)**: Windsurf (PR automation + RBAC)
+
+---
+
+### 9. Deployment Automation
+
+| Tool | Built-in Deploy<br><sub>🟢 NICE-TO-HAVE</sub> | Platforms<br><sub>🟢 NICE-TO-HAVE</sub> | CI/CD Integration<br><sub>🟢 NICE-TO-HAVE</sub> | DB Migrations<br><sub>🟢 NICE-TO-HAVE</sub> | Deploy Config<br><sub>🟢 NICE-TO-HAVE</sub> |
+|------|----------------|-----------|-------------------|---------------|----------------|
+| **Cursor** | ❌ No | Manual | ✅ Via GitHub Actions | ❌ No | N/A |
+| **Windsurf** | ✅ Yes | Netlify | ✅ GitHub Actions | ❌ No | ⚠️ Limited |
+| **Bolt.new** | ✅ Yes | Netlify | ✅ GitHub Actions | ⚠️ Supabase only | ⚠️ Limited |
+| **Replit** | ✅ Yes | Replit cloud | ✅ Via GitHub Actions | ✅ Yes (automatic) | ⚠️ Limited |
+| **Lovable** | ✅ Yes | Lovable hosting | ❌ No | ✅ Supabase | ⚠️ Limited |
+| **Base44** | ✅ Yes | Base44 hosting | ❌ No | ✅ Automatic | ⚠️ Limited |
+
+**Key Insight**: Cursor has no deployment features (IDE only). Windsurf & Bolt.new integrate with Netlify (external platform). Replit, Lovable, Base44 deploy to proprietary hosting.
+
+**Winner**: Windsurf, Bolt.new (Netlify flexibility), Replit (one-click + custom domains)
+
+---
+
+### 10. Local Development Support (CRITICAL)
+
+| Tool | Export Runs Standalone<br><sub>🔴 MUST-HAVE</sub> | Offline Work<br><sub>🟡 SHOULD-HAVE</sub> | Local Debugging<br><sub>🟡 SHOULD-HAVE</sub> | Performance<br><sub>🟢 NICE-TO-HAVE</sub> | Use Own Dev Tools<br><sub>🟢 NICE-TO-HAVE</sub> |
+|------|---------------------|--------------|-----------------|----------------|-------------------|
+| **Cursor** | ✅ Yes | ⚠️ Limited (editing only) | ✅ Yes | Same | ✅ Yes |
+| **Windsurf** | ✅ Yes | ⚠️ Limited (editing only) | ✅ Yes | Same | ✅ Yes |
+| **Bolt.new** | ✅ npm install only | ❌ No | ⚠️ Limited | Faster local | ✅ Yes (after export) |
+| **Replit** | ✅ npm install only | ❌ No | ✅ Yes | Depends on plan | ✅ Yes (after export) |
+| **Lovable** | ⚠️ Requires Supabase | ❌ No | ⚠️ Limited | Faster local | ✅ Yes (with Supabase) |
+| **Base44** | ❌ Requires platform | ❌ No | ❌ No | N/A | ❌ No |
+
+**Critical Failures**:
+- **Base44**: Exported code cannot run standalone; requires Base44 backend infrastructure (**FAILS 10.1**)
+- **Lovable**: Requires Supabase infrastructure; not fully standalone (**PARTIAL FAIL 10.1**)
+
+**Winner**: Cursor, Windsurf (desktop IDEs with local flexibility)
+
+---
+
+### 11. AI Model Selection
+
+| Tool | Supported Models<br><sub>🟡 SHOULD-HAVE</sub> | Model Switching<br><sub>🟡 SHOULD-HAVE</sub> | BYOK<br><sub>🟡 SHOULD-HAVE</sub> | Transparency<br><sub>🟢 NICE-TO-HAVE</sub> | Local Models<br><sub>🟢 NICE-TO-HAVE</sub> |
+|------|----------------|-----------------|------|---------------|-------------|
+| **Cursor** | 8+ (Claude, GPT-4, etc.) | ✅ Yes | ✅ Yes | ✅ Yes | ❌ No |
+| **Windsurf** | Claude, GPT-4, SWE-1 | ✅ Yes | ✅ Yes | ✅ Yes | ❌ No |
+| **Bolt.new** | Claude 3.5 Sonnet | ⚠️ Agent versions only | ❌ No | ✅ Yes | ❌ No |
+| **Replit** | GPT-5, Claude 3.5, Replit Code | ❌ No (automatic) | ✅ Yes | ✅ Yes | ❌ No |
 | **Lovable** | Claude 3.5 Sonnet | ❌ No | ❌ No | ❌ No | ❌ No |
 | **Base44** | Not disclosed | ❌ No | ❌ No | ❌ No | ❌ No |
 
-**Key Insight**: 
-- **Cursor** offers most flexibility (8+ models, BYOK, transparent selection)
-- **Windsurf** provides strong model diversity with proprietary SWE-1
-- **Cloud platforms** (Bolt.new, Replit, Lovable, Base44) lock users to vendor-managed models
+**Key Insight**: Cursor offers most flexibility (8+ models, BYOK). Windsurf provides strong diversity with SWE-1. Cloud platforms lock users to vendor-managed models.
 
-**Winner**: Cursor (most model options + BYOK flexibility)
+**Winner**: Cursor (most model options + BYOK), Windsurf (BYOK + SWE-1)
 
-### 5. Codebase Scale & Context
+---
 
-| Tool | Max File Count | AI Context Window | Proven 100K+ LOC | Monorepo Support |
-|------|----------------|-------------------|------------------|------------------|
-| **Cursor** | Unlimited (tested 10k+) | 200K tokens | ✅ Yes (evidence) | ✅ Yes |
-| **Windsurf** | Unlimited (tested 10k+) | 200K tokens | ✅ Yes (Fortune 500) | ✅ Yes |
-| **Bolt.new** | Context-limited | 200K-500K tokens | ⚠️ Limited (context errors) | ⚠️ Limited |
-| **Replit** | Unlimited | Not documented | ⚠️ Likely | ✅ Yes |
-| **Lovable** | Context-limited | Not documented | ❌ No (prototypes only) | ❌ No |
-| **Base44** | Not documented | Not documented | ❌ No (MVPs only) | ❌ No |
+### 12. IDE Type
 
-**Key Insight**: 
-- **Cursor & Windsurf**: Enterprise-proven on 100K+ LOC codebases with RAG-based indexing
-- **Bolt.new**: Context window limits cause "Project too large" errors (requires .boltignore)
-- **Lovable & Base44**: Optimized for MVPs, not enterprise scale
+| Tool | Primary Interface<br><sub>🟡 SHOULD-HAVE</sub> | VS Code-based<br><sub>🟡 SHOULD-HAVE</sub> | Terminal Access<br><sub>🟢 NICE-TO-HAVE</sub> | Customization<br><sub>🟢 NICE-TO-HAVE</sub> | Keyboard Shortcuts<br><sub>🟢 NICE-TO-HAVE</sub> |
+|------|------------------|-------------|---------------|---------------|---------------------|
+| **Cursor** | Desktop IDE | ✅ Yes (fork) | ✅ Yes | ✅ Full VS Code | ✅ Yes |
+| **Windsurf** | Desktop IDE | ✅ Yes (fork) | ✅ Yes | ✅ Full VS Code | ✅ Yes |
+| **Bolt.new** | Web IDE | ❌ No | ✅ Yes | ⚠️ Limited | ✅ Yes |
+| **Replit** | Web IDE | ❌ No | ✅ Yes | ⚠️ Limited | ✅ Yes |
+| **Lovable** | Web IDE | ❌ No | ✅ Yes | ⚠️ Limited | ✅ Yes |
+| **Base44** | Web IDE | ❌ No | ❌ No | ⚠️ Limited | ✅ Yes |
 
-**Winner**: Cursor, Windsurf (proven Fortune 500 adoption + unlimited file indexing)
+**Key Insight**: Cursor & Windsurf are VS Code forks (full compatibility). Cloud platforms use proprietary web IDEs with varying customization levels.
 
-### 6. Collaboration Features
+**Winner**: Cursor, Windsurf (VS Code ecosystem + desktop performance)
 
-| Tool | Real-time Multiplayer | Git-based Workflows | PR Automation | Live Cursors | RBAC |
-|------|----------------------|---------------------|---------------|--------------|------|
-| **Cursor** | ❌ No | ✅ Yes (GitHub) | ⚠️ Limited | ❌ No | ❌ No |
-| **Windsurf** | ❌ No | ✅ Yes (GitHub PR Reviews) | ✅ Yes | ❌ No | ✅ Teams+ |
-| **Bolt.new** | ✅ Yes (Teams plan) | ✅ Yes (GitHub) | ❌ No | ✅ Teams | ✅ Teams |
-| **Replit** | ✅ Yes | ✅ Yes (GitHub/GitLab) | ⚠️ Via GitHub Actions | ✅ Yes | ✅ Yes |
-| **Lovable** | ✅ Yes | ✅ Yes (GitHub) | ❌ No | ✅ Yes | ✅ Yes |
-| **Base44** | ✅ Yes | ✅ Yes (GitHub Dec 2025) | ❌ No | ✅ Yes | ✅ Yes |
+---
 
-**Key Insight**: 
-- **Real-time collaboration**: Cloud platforms excel (Bolt.new, Replit, Lovable, Base44)
-- **PR automation**: Only Windsurf has dedicated PR review features
-- **Desktop IDEs**: Cursor/Windsurf rely on async Git workflows
+### 13. Codebase Scale Limits
 
-**Winner (Real-time)**: Replit, Bolt.new (multiplayer + Git workflows)  
-**Winner (Enterprise)**: Windsurf (PR automation + RBAC)
+| Tool | Max File Count<br><sub>🟡 SHOULD-HAVE</sub> | AI Context Window<br><sub>🟡 SHOULD-HAVE</sub> | Proven 100K+ LOC<br><sub>🟡 SHOULD-HAVE</sub> | Monorepo Support<br><sub>🟢 NICE-TO-HAVE</sub> | Performance Thresholds<br><sub>🟢 NICE-TO-HAVE</sub> |
+|------|----------------|-------------------|------------------|------------------|-----------------------|
+| **Cursor** | Unlimited (10k+ tested) | 200K tokens | ✅ Yes (evidence) | ✅ Yes | None documented |
+| **Windsurf** | Unlimited (10k+ tested) | 200K tokens | ✅ Yes (Fortune 500) | ✅ Yes | None documented |
+| **Bolt.new** | Context-limited | 200K-500K tokens | ⚠️ Limited (errors) | ⚠️ Limited | Context window |
+| **Replit** | 2 GiB storage | 128K tokens | ✅ Yes (300K LOC) | ⚠️ Limited (config needed) | 2 GiB / 128K tokens |
+| **Lovable** | Context-limited | Not documented | ❌ No (prototypes) | ❌ No | Context window |
+| **Base44** | Not documented | Not documented | ❌ No (MVPs) | ❌ No | Not documented |
 
-### 7. Deployment Automation
+**Key Insight**: Cursor & Windsurf are enterprise-proven on 100K+ LOC codebases with RAG indexing. Bolt.new hits context limits ("Project too large"). Lovable & Base44 optimize for MVPs.
 
-| Tool | Built-in Deploy | Platforms | One-Click | CI/CD Integration | DB Migrations |
-|------|----------------|-----------|-----------|-------------------|---------------|
-| **Cursor** | ❌ No | Manual | ❌ No | ✅ Via GitHub Actions | ❌ No |
-| **Windsurf** | ✅ Yes | Netlify | ✅ Yes | ✅ GitHub Actions | ❌ No |
-| **Bolt.new** | ✅ Yes | Netlify | ✅ Yes | ✅ GitHub Actions | ⚠️ Supabase only |
-| **Replit** | ✅ Yes | Replit Deployments | ✅ Yes | ⚠️ Limited | ✅ Yes (automatic) |
-| **Lovable** | ✅ Yes | Lovable hosting | ✅ Yes | ❌ No | ✅ Supabase |
-| **Base44** | ✅ Yes | Base44 hosting | ✅ Yes | ❌ No | ✅ Automatic |
+**Winner**: Cursor, Windsurf (proven Fortune 500 adoption + unlimited indexing)
 
-**Key Insight**: 
-- **Cursor**: No deployment features (IDE only)
-- **Windsurf & Bolt.new**: Netlify integration (external platform)
-- **Replit, Lovable, Base44**: Platform-locked deployment
+---
 
-**Winner**: Windsurf, Bolt.new (Netlify gives deployment flexibility)
+### 14. API/Service Integration
 
-### 8. Pricing Comparison
+| Tool | Supabase Scaffold<br><sub>🟡 SHOULD-HAVE</sub> | Type-safe Clients<br><sub>🟡 SHOULD-HAVE</sub> | Auth Templates<br><sub>🟢 NICE-TO-HAVE</sub> | Payment Integration<br><sub>🟢 NICE-TO-HAVE</sub> | GraphQL Codegen<br><sub>🟢 NICE-TO-HAVE</sub> |
+|------|-----------------|-------------------|---------------|---------------------|------------------|
+| **Cursor** | ✅ Yes (manual) | ✅ Yes | ✅ Yes | ✅ Yes | ✅ Yes |
+| **Windsurf** | ✅ Yes (manual) | ✅ Yes | ✅ Yes | ✅ Yes | ✅ Yes |
+| **Bolt.new** | ✅ Yes (automatic) | ✅ Yes | ✅ Yes | ✅ Yes | ✅ Yes |
+| **Replit** | ✅ Yes (automatic) | ✅ Yes | ✅ Yes | ✅ Yes (Stripe) | ✅ Yes |
+| **Lovable** | ✅ Yes (native) | ✅ Yes | ✅ Yes | ✅ Yes | ✅ Yes |
+| **Base44** | ❌ No | ⚠️ Limited | ✅ Yes | ⚠️ Limited | ❌ No |
 
-| Tool | Free Tier | Pro/Month | Team/Month | Enterprise | BYOK Saves Cost |
-|------|-----------|-----------|------------|------------|-----------------|
-| **Cursor** | ✅ 2000 completions | $20 | $40/user | Custom | ✅ Yes |
-| **Windsurf** | ✅ 25 credits | $15 | $30/user | $60/user | ✅ Yes |
-| **Bolt.new** | ✅ 300K tokens/day | $20-200 | $30/user | N/A | ❌ No |
-| **Replit** | ✅ Limited | $25 | $33/user | Custom | ❌ No |
-| **Lovable** | ✅ Limited | $30-100 | N/A | Custom | ❌ No |
-| **Base44** | ✅ Limited | $20-200 | N/A | Custom | ❌ No |
+**Key Insight**: All qualified tools support Supabase integration. Lovable has native Supabase support (but creates dependency). Desktop IDEs code manually; cloud platforms auto-generate.
 
-**Key Insight**: 
-- **Best value**: Windsurf Pro ($15/month with BYOK)
-- **Most expensive**: Lovable Pro Max ($100/month), Base44 Elite ($200/month)
-- **BYOK advantage**: Cursor & Windsurf let users avoid platform credits
+**Winner**: Lovable (native Supabase), Bolt.new/Replit (auto-scaffolding)
+
+---
+
+### 15. Code Generation Scope
+
+| Tool | Full Apps<br><sub>🟡 SHOULD-HAVE</sub> | Complete Features<br><sub>🟡 SHOULD-HAVE</sub> | Inline Completion<br><sub>🟡 SHOULD-HAVE</sub> | UI Components<br><sub>🟢 NICE-TO-HAVE</sub> | Test Files<br><sub>🟢 NICE-TO-HAVE</sub> |
+|------|----------|------------------|-------------------|--------------|-----------|
+| **Cursor** | ✅ Yes (with guidance) | ✅ Yes | ✅ Yes (Tab) | ✅ Yes | ✅ Yes |
+| **Windsurf** | ✅ Yes (Cascade) | ✅ Yes (Cascade) | ✅ Yes (Flow) | ✅ Yes | ✅ Yes |
+| **Bolt.new** | ✅ Yes (automatic) | ✅ Yes | ✅ Yes | ✅ Yes | ✅ Yes |
+| **Replit** | ✅ Yes (Agent 2.0) | ✅ Yes | ✅ Yes (Ghostwriter) | ✅ Yes (screenshot-to-code) | ✅ Yes |
+| **Lovable** | ✅ Yes (automatic) | ✅ Yes | ✅ Yes | ✅ Yes | ✅ Yes |
+| **Base44** | ✅ Yes (automatic) | ✅ Yes | ✅ Yes | ✅ Yes | ⚠️ Limited |
+
+**Key Insight**: All tools generate full applications. Windsurf's Cascade mode is most autonomous. Replit's Agent 2.0 has screenshot-to-code (multimodal). Desktop IDEs require more guidance; cloud platforms fully autonomous.
+
+**Winner**: Windsurf (Cascade autonomy), Replit (multimodal generation)
+
+---
+
+### 16. Extension Ecosystem
+
+| Tool | VS Code Extensions<br><sub>🟡 SHOULD-HAVE</sub> | Marketplace Coverage<br><sub>🟢 NICE-TO-HAVE</sub> | Custom Extensions<br><sub>🟢 NICE-TO-HAVE</sub> | Own Plugin System<br><sub>🟢 NICE-TO-HAVE</sub> | Popular Tools Support<br><sub>🟢 NICE-TO-HAVE</sub> |
+|------|---------------------|---------------------|-------------------|------------------|----------------------|
+| **Cursor** | ✅ Yes | 90%+ marketplace | ✅ Yes | ✅ Yes | ✅ Yes |
+| **Windsurf** | ✅ Yes | 50-70% (Open VSX) | ✅ Yes | ✅ Yes | ✅ Yes |
+| **Bolt.new** | ❌ No | N/A | ❌ No | ❌ No | ✅ Via config |
+| **Replit** | ❌ No | N/A | ✅ Yes (2026) | ✅ Yes | ✅ Via config |
+| **Lovable** | ❌ No | N/A | ❌ No | ❌ No | ✅ Via config |
+| **Base44** | ❌ No | N/A | ❌ No | ❌ No | ⚠️ Limited |
+
+**Key Insight**: Only Cursor & Windsurf support VS Code extensions. Cursor has full marketplace access; Windsurf limited to Open VSX. Cloud platforms use config files (not extensions).
+
+**Winner**: Cursor (90%+ VS Code marketplace), Windsurf (Open VSX subset)
+
+---
+
+### 17. Pricing Model
+
+| Tool | Free Tier<br><sub>🟡 SHOULD-HAVE</sub> | Monthly Cost<br><sub>🟡 SHOULD-HAVE</sub> | Enterprise<br><sub>🟡 SHOULD-HAVE</sub> | Usage Measurement<br><sub>🟢 NICE-TO-HAVE</sub> | Usage Limits<br><sub>🟢 NICE-TO-HAVE</sub> |
+|------|----------|-------------|-----------|------------------|--------------|
+| **Cursor** | ✅ 2000 completions | $20 Pro | ✅ Custom | Completions/requests | Premium models limited |
+| **Windsurf** | ✅ 25 credits | $15 Pro | ✅ $60/user | Credits | Credit-based |
+| **Bolt.new** | ✅ 300K tokens/day | $20-200 | N/A | Tokens | Token-based |
+| **Replit** | ✅ Limited | $20 Core / $40 Agent | ✅ Custom | Effort-based (Agent) | 2 GiB storage |
+| **Lovable** | ✅ Limited | $30-100 | ✅ Custom | Project-based | Not specified |
+| **Base44** | ✅ Limited | $20-200 | ✅ Custom | Not specified | Not specified |
+
+**Key Insight**: Windsurf offers best value ($15 Pro + BYOK). Most expensive: Lovable Pro Max ($100), Base44 Elite ($200). BYOK available only on Cursor & Windsurf.
 
 **Winner (Value)**: Windsurf ($15 Pro + BYOK option)
+
+---
+
+### 18. Mobile Support
+
+| Tool | Native Mobile Apps<br><sub>🟢 NICE-TO-HAVE</sub> | React Native<br><sub>🟢 NICE-TO-HAVE</sub> | Responsive Web<br><sub>🟢 NICE-TO-HAVE</sub> | Flutter<br><sub>🟢 NICE-TO-HAVE</sub> | Mobile Scaffolding<br><sub>🟢 NICE-TO-HAVE</sub> |
+|------|-------------------|-------------|--------------|--------|-------------------|
+| **Cursor** | ❌ No | ✅ Yes (manual) | ✅ Yes | ✅ Yes (manual) | ✅ Yes |
+| **Windsurf** | ❌ No | ✅ Yes (manual) | ✅ Yes | ✅ Yes (manual) | ✅ Yes |
+| **Bolt.new** | ❌ No | ✅ Yes (Jan 2026) | ✅ Yes | ❌ No | ✅ Yes |
+| **Replit** | ❌ No (preview only) | ✅ Yes (Expo) | ✅ Yes | ✅ Yes | ✅ Yes |
+| **Lovable** | ❌ No | ❌ No | ✅ Yes | ❌ No | ✅ Yes (web) |
+| **Base44** | ❌ No | ❌ No | ✅ Yes | ❌ No | ✅ Yes (web) |
+
+**Key Insight**: No tool compiles native mobile binaries directly. Cursor, Windsurf, Replit support React Native and Flutter (manual coding). Bolt.new added React Native in Jan 2026. All generate responsive web apps.
+
+**Winner**: Replit (React Native + Flutter templates), Cursor/Windsurf (full manual control)
+
+---
+
+### 19. Performance Optimization
+
+| Tool | Optimization Suggestions<br><sub>🟢 NICE-TO-HAVE</sub> | Bundle Analysis<br><sub>🟢 NICE-TO-HAVE</sub> | Auto Lazy Loading<br><sub>🟢 NICE-TO-HAVE</sub> | Code Splitting<br><sub>🟢 NICE-TO-HAVE</sub> | Performance Metrics<br><sub>🟢 NICE-TO-HAVE</sub> |
+|------|------------------------|---------------|------------------|--------------|---------------------|
+| **Cursor** | ✅ Yes (AI-suggested) | ⚠️ Via extensions | ❌ No | ✅ Framework-native | ⚠️ Via extensions |
+| **Windsurf** | ✅ Yes (AI-suggested) | ⚠️ Via extensions | ❌ No | ✅ Framework-native | ⚠️ Via extensions |
+| **Bolt.new** | ✅ Yes (AI-suggested) | ❌ No | ❌ No | ✅ Framework-native | ❌ No |
+| **Replit** | ✅ Yes (on prompt) | ❌ No | ❌ No | ✅ Framework-native | ⚠️ Via generated code |
+| **Lovable** | ✅ Yes (AI-suggested) | ❌ No | ❌ No | ✅ Framework-native | ❌ No |
+| **Base44** | ⚠️ Limited | ❌ No | ❌ No | ✅ Framework-native | ❌ No |
+
+**Key Insight**: All tools rely on AI suggestions for optimization (not automatic). Desktop IDEs leverage extensions for bundle analysis. Framework-native code splitting (Next.js, Vite) available in all modern stacks.
+
+**Winner**: Cursor, Windsurf (extension ecosystem for profiling)
+
+---
+
+### 20. Security & Compliance
+
+| Tool | Vulnerability Scanning<br><sub>🟡 SHOULD-HAVE</sub> | Auth Scaffolding<br><sub>🟡 SHOULD-HAVE</sub> | GDPR Features<br><sub>🟢 NICE-TO-HAVE</sub> | SOC2/ISO Certification<br><sub>🟢 NICE-TO-HAVE</sub> |
+|------|---------------------|------------------|-------------|----------------------|
+| **Cursor** | ⚠️ Via extensions | ✅ Yes | ⚠️ User responsibility | ⚠️ Infrastructure only |
+| **Windsurf** | ⚠️ Via extensions | ✅ Yes | ⚠️ User responsibility | ⚠️ Infrastructure only |
+| **Bolt.new** | ❌ No | ✅ Yes (Supabase) | ⚠️ User responsibility | ⚠️ Via hosting |
+| **Replit** | ✅ Yes (Enterprise) | ✅ Yes | ✅ Yes (Enterprise) | ✅ Yes (Enterprise) |
+| **Lovable** | ❌ No | ✅ Yes (Supabase) | ⚠️ Via Supabase | ⚠️ Via Supabase |
+| **Base44** | ✅ Yes (Security scan) | ✅ Yes | ⚠️ Limited | ⚠️ Via platform |
+
+**Key Insight**: Replit Enterprise offers comprehensive compliance (SOC2, SBOM, vulnerability scanning). Base44 has security scan feature. Desktop IDEs rely on extensions. Auth scaffolding available in all tools.
+
+**Winner**: Replit (Enterprise compliance suite), Base44 (built-in security scan)
+
+---
+
+### 21. Team & Adoption
+
+| Tool | Team Sizes<br><sub>🟡 SHOULD-HAVE</sub> | Learning Curve<br><sub>🟢 NICE-TO-HAVE</sub> | Vendor Stability<br><sub>🟡 SHOULD-HAVE</sub> |
+|------|------------|---------------|-----------------|
+| **Cursor** | Solo / Small / Medium / Enterprise | Minimal (VS Code users) | Series B+ (well-funded) |
+| **Windsurf** | Solo / Small / Medium / Enterprise | Minimal (VS Code users) | Series B+ (Codeium) |
+| **Bolt.new** | Solo / Small / Medium | Easy (1 day) | Series A (StackBlitz) |
+| **Replit** | Solo / Small / Medium / Enterprise | Moderate (1-3 days) | Series B+ (established) |
+| **Lovable** | Solo / Small | Easy (1 day) | Early-stage (funded) |
+| **Base44** | Solo / Small | Easy (1 day) | Acquired by Wix ($80M) |
+
+**Key Insight**: Desktop IDEs (Cursor, Windsurf) have minimal learning curve for VS Code users. Cloud platforms optimize for beginners. All vendors are funded/stable except Lovable (early-stage).
+
+**Winner**: Cursor, Windsurf (enterprise-ready + stable), Replit (education market leader)
 
 ---
 
@@ -303,12 +529,13 @@ Does your project require:
 - Windsurf: 25 credits/month
 - Cursor: 2000 completions
 - Bolt.new: 300K tokens/day
+- Replit: Limited Agent access
 
 **Budget <$20/month/user?**
 → Windsurf ($15 Pro) or Cursor ($20 Pro)
 
 **Budget $30-40/month/user?**
-→ Bolt.new Teams ($30) or Cursor Team ($40)
+→ Replit Agent ($40) or Cursor Team ($40)
 
 **Budget >$50/month/user?**
 → Consider BYOK (Cursor/Windsurf) to reduce costs
@@ -380,10 +607,10 @@ Does your project require:
 - ✅ Zero vendor lock-in
 
 **Weaknesses**:
-- ⚠️ Context window not documented
-- ⚠️ AI model selection limited
+- ⚠️ Context window (128K tokens) smaller than competitors
+- ⚠️ AI model selection automatic (no manual switching)
 - ❌ Deployment locked to Replit platform (less flexibility)
-- ⚠️ Pricing higher than alternatives ($25 Pro)
+- ⚠️ 2 GiB storage limit per app
 
 **Best for**: Educators, polyglot teams, learners, teams needing multiplayer
 
@@ -513,6 +740,6 @@ The choice between top-tier tools (Cursor vs. Windsurf vs. Bolt.new vs. Replit) 
 1. **Deployment model preference**: Desktop (Cursor/Windsurf) vs. Cloud (Bolt.new/Replit)
 2. **Language requirements**: Polyglot (Cursor/Windsurf/Replit) vs. JavaScript-only (Bolt.new)
 3. **Collaboration needs**: Async Git (Cursor/Windsurf) vs. Real-time (Bolt.new/Replit)
-4. **Budget constraints**: Windsurf ($15) vs. Cursor ($20) vs. Bolt.new ($20) vs. Replit ($25)
+4. **Budget constraints**: Windsurf ($15) vs. Cursor ($20) vs. Bolt.new ($20) vs. Replit ($25-40)
 
 All four qualified tools provide enterprise-grade AI development capabilities with zero vendor lock-in—the final choice depends on team-specific priorities.
