@@ -489,6 +489,10 @@ If you choose to add quantitative scoring to evaluations, use this framework:
 
 ## Change Log
 
+### v2.0.1 (2026-02-04)
+- Fixed: Updated all references from "20 metrics" to "21 metrics" (Metric 21 Team & Adoption was added)
+- Clarified that framework now has 21 total metrics (not 20)
+
 ### v2.0 (2026-02-04)
 - **Major Enhancement**: Integrated all 103 decision questions as embedded sub-metrics within 21 evaluation metrics
 - Added new Metric 21 (Team & Adoption) for organizational factors
