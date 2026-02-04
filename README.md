@@ -8,6 +8,7 @@ A systematic framework for evaluating and comparing multiple options (products, 
 
 ### 📘 Core Methodology
 - **[`comparative-research-methodology.md`](comparative-research-methodology.md)**: The complete 4-phase process for conducting comparative research (domain-agnostic)
+- **[`AI-ASSISTED-WORKFLOW.md`](AI-ASSISTED-WORKFLOW.md)**: Step-by-step guide for using AI assistants to complete research projects ⭐ **START HERE**
 
 ### 📁 Reusable Templates
 - **[`templates/`](templates/)**: Blank templates for starting new research projects
@@ -26,7 +27,40 @@ A systematic framework for evaluating and comparing multiple options (products, 
 
 ## Quick Start Guide
 
-### For New Research Projects
+### 🤖 With AI Assistant (Recommended)
+
+**Best for**: Most users - AI helps structure requirements, research options, and generate reports
+
+**Time**: 2-4 hours with AI vs. 8-16 hours manually
+
+**Start here**: 👉 **[AI-Assisted Workflow Guide](AI-ASSISTED-WORKFLOW.md)**
+
+The guide provides:
+- ✅ Copy-paste prompts for each phase
+- ✅ Conversation examples with AI
+- ✅ Evidence validation tips
+- ✅ Quality checklists
+- ✅ Reference to completed example project
+
+**Quick Start Prompt** (copy and paste to your AI assistant):
+```
+I want to use the Comparative Research Methodology from 
+https://github.com/Peter-Sixhoj/ai-dev-tools-evaluations 
+to evaluate [YOUR CATEGORY].
+
+I need to choose between:
+1. [Option A]
+2. [Option B]
+3. [Option C]
+
+Please help me complete Phase 0 by creating a research-context.md file.
+```
+
+---
+
+### 🛠️ Manual Setup (Advanced)
+
+**Best for**: Users who prefer full manual control or working without AI
 
 **1. Read the Methodology**
 ```bash
@@ -63,6 +97,8 @@ cp templates/evaluation-template-template.md projects/your-project-name/framewor
 - Identify stakeholders and use cases
 - Set evaluation scope
 
+**With AI**: 15-30 minutes | **Manual**: 1-2 hours
+
 ### Phase 1: Define Evaluation Framework
 **Outputs**: `framework/` folder
 
@@ -70,6 +106,8 @@ cp templates/evaluation-template-template.md projects/your-project-name/framewor
 - Define 80-120 specific questions
 - Assign priority weights (CRITICAL/HIGH/MEDIUM)
 - Establish evidence standards (P1/P2/P3)
+
+**With AI**: 30-60 minutes | **Manual**: 3-4 hours
 
 ### Phase 2: Conduct Individual Evaluations
 **Outputs**: `evaluations/[option]-evaluation.md`
@@ -79,6 +117,8 @@ cp templates/evaluation-template-template.md projects/your-project-name/framewor
 - Calculate Decision Scorecard
 - Document strengths and limitations
 
+**With AI**: 1-2 hours (all options) | **Manual**: 4-8 hours
+
 ### Phase 3: Generate Comparison Report
 **Output**: `comparison-report.md` (at project root)
 
@@ -86,6 +126,8 @@ cp templates/evaluation-template-template.md projects/your-project-name/framewor
 - Rank options by total score
 - Map use cases to best options
 - Provide decision framework
+
+**With AI**: 30-45 minutes | **Manual**: 2-3 hours
 
 ---
 
@@ -130,6 +172,8 @@ project-name/
 - [Individual Evaluations](projects/ai-dev-tools/evaluations/)
 - [Project README](projects/ai-dev-tools/README.md)
 
+**Use as Reference**: This project demonstrates the complete methodology applied to a real evaluation.
+
 ---
 
 ## When to Use This Methodology
@@ -156,6 +200,26 @@ project-name/
 5. **Critical Focus**: Identify deal-breakers early (CRITICAL requirements)
 6. **Visual Hierarchy**: Tables and icons for scanability
 7. **Versioned Framework**: Enables auditing and iteration
+8. **AI-Friendly**: Designed for efficient AI collaboration
+
+---
+
+## Resources
+
+### Getting Started
+- 🤖 [AI-Assisted Workflow Guide](AI-ASSISTED-WORKFLOW.md) - **Start here for fastest results**
+- 📖 [Complete Methodology](comparative-research-methodology.md) - Full theoretical framework
+- 📋 [Templates](templates/) - Blank starting points
+
+### Examples
+- 🔬 [AI Dev Tools Project](projects/ai-dev-tools/) - Complete worked example
+- 📊 [Comparison Report](projects/ai-dev-tools/comparison-report.md) - See final output
+- 🎯 [Research Context](projects/ai-dev-tools/research-context.md) - See Phase 0 output
+
+### Contributing
+- 💡 [Create an Issue](../../issues) - Suggest improvements
+- 🤝 Add your project to `projects/` folder
+- 📝 Share your adaptations of the methodology
 
 ---
 
@@ -163,10 +227,11 @@ project-name/
 
 To add a new research project:
 
-1. Create folder: `projects/your-project-name/`
-2. Follow the 4-phase process
-3. Update this README with project link
-4. Ensure all framework files reference correct versions
+1. Follow the [AI-Assisted Workflow](AI-ASSISTED-WORKFLOW.md)
+2. Create folder: `projects/your-project-name/`
+3. Complete all 4 phases
+4. Update this README with project link
+5. Ensure all framework files reference correct versions
 
 ---
 
@@ -176,7 +241,7 @@ To add a new research project:
 **Last Updated**: 2026-02-04
 
 ### Version History
-- **v1.0** (2026-02-04): Initial release with 4-phase process
+- **v1.0** (2026-02-04): Initial release with 4-phase process and AI-assisted workflow
 
 ---
 
@@ -188,4 +253,7 @@ To add a new research project:
 
 ## Questions or Feedback?
 
-For questions about the methodology or to share your research projects, [create an issue](../../issues) or reach out to [maintainer contact].
+For questions about the methodology or to share your research projects:
+- 📝 [Create an issue](../../issues)
+- 💬 [Start a discussion](../../discussions)
+- 📧 [Contact maintainer](mailto:your-email@example.com)
