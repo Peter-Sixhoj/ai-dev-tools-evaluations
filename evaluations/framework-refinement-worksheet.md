@@ -41,10 +41,10 @@ This clearly indicates **Interpretation A** (about the development tool).
 
 | New ID | Question | Priority | Answer Format |
 |--------|----------|----------|---------------|
-| 1.1a | Can the **development environment** (IDE + AI) be fully self-hosted on your infrastructure? | 🔴 CRITICAL | Yes / Partial / No |
-| 1.1b | Can **applications you build** be deployed to any on-premises infrastructure? | 🟡 HIGH | Yes / Requires platform / No |
+| 1.1a | Can the **development environment** (IDE + AI) be fully self-hosted on your infrastructure? | Nice-to-have | Yes / Partial / No |
+| 1.1b | Can **applications you build** be deployed to outside products own infrastructure? | 🔴 CRITICAL | Yes / Requires platform / No |
 
-**Your Decision**: [ ] Accept / [ ] Modify / [ ] Other: ________________
+**Your Decision**: [x] Accept / [ ] Modify / [ ] Other: ________________
 
 ---
 
@@ -64,11 +64,11 @@ This clearly indicates **Interpretation A** (about the development tool).
 
 | New ID | Question | Priority | Answer Format |
 |--------|----------|----------|---------------|
-| 1.2 | Can the tool operate in **completely air-gapped environments** (no internet access for development or AI features)? | 🔴 CRITICAL | Yes / Partial (internet for AI only) / No |
+| 1.2 | Can the tool operate in **completely air-gapped environments** (no internet access for development or AI features)? | Nice-to-have | Yes / Partial (internet for AI only) / No |
 
 **Remove**: Question 20.1 (duplicate)
 
-**Your Decision**: [ ] Accept / [ ] Modify / [ ] Keep both: ________________
+**Your Decision**: [x] Accept / [ ] Modify / [ ] Keep both: ________________
 
 ---
 
@@ -95,11 +95,11 @@ This clearly indicates **Interpretation A** (about the development tool).
 
 | ID | Question | Priority | Answer Format |
 |----|----------|----------|---------------|
-| 4.2 | Does it support Rust with LSP integration (rust-analyzer)? | 🟡 HIGH | Yes / Syntax only / No |
+| 4.2 | Does it support Rust with LSP integration (rust-analyzer)? | Nice-to-have | Yes / Syntax only / No |
 
 **Alternative**: Remove question entirely if Rust is not actively used today
 
-**Your Decision**: [ ] Downgrade to HIGH / [ ] Remove / [ ] Keep CRITICAL: ________________
+**Your Decision**: [x ] Downgrade to Nice-to-have / [ ] Remove / [ ] Keep CRITICAL: ________________
 
 ---
 
@@ -127,7 +127,7 @@ This clearly indicates **Interpretation A** (about the development tool).
 - ❌ NO: Requires proprietary Base44 runtime to function
 - ⚠️ PARTIAL: Requires specific cloud provider SDK (AWS Amplify, Firebase)
 
-**Your Decision**: [ ] Accept clarification / [ ] Modify: ________________
+**Your Decision**: [ x] Accept clarification / [ ] Modify: ________________
 
 ---
 
@@ -157,7 +157,7 @@ This clearly indicates **Interpretation A** (about the development tool).
 | 13.2 | What is the **AI context window** (how much code can AI consider at once)? | AI comprehension scope | Tokens (e.g., "200K tokens") or files (e.g., "50 files") |
 | 13.3 | Has the tool been **proven on enterprise-scale codebases** (100K+ LOC)? | Real-world validation | Yes (with evidence) / Likely / No |
 
-**Your Decision**: [ ] Accept clarification / [ ] Merge questions / [ ] Modify: ________________
+**Your Decision**: [X ] Accept clarification / [ ] Merge questions / [ ] Modify: ________________
 
 ---
 
@@ -183,7 +183,7 @@ This clearly indicates **Interpretation A** (about the development tool).
 
 **Rationale**: Git workflows are higher priority for professional teams; real-time is nice-to-have.
 
-**Your Decision**: [ ] Accept split / [ ] Keep as-is / [ ] Modify: ________________
+**Your Decision**: [ x] Accept split / [ ] Keep as-is / [ ] Modify: ________________
 
 ---
 
@@ -210,7 +210,7 @@ This indicates **Interpretation A** (about IDE lock-in, not backend lock-in).
 |----|----------|----------|---------------|
 | 10.1 | Can exported projects **run using standard dev commands** (npm start, cargo run) in any IDE/terminal, without requiring the tool's IDE? | 🔴 CRITICAL | Yes / Requires tool IDE / No |
 
-**Your Decision**: [ ] Accept clarification / [ ] Modify: ________________
+**Your Decision**: [ x] Accept clarification / [ ] Modify: ________________
 
 ---
 
@@ -236,7 +236,7 @@ This indicates **Interpretation A** (about IDE lock-in, not backend lock-in).
 | 1.4a | Where does the **IDE/editor** run? | 🟡 HIGH | Local (desktop) / Cloud (browser) / Both |
 | 1.4b | Where are **AI features processed**? | 🟡 HIGH | Local / Cloud API / Self-hosted option / Hybrid |
 
-**Your Decision**: [ ] Accept split / [ ] Keep as-is / [ ] Modify: ________________
+**Your Decision**: [x ] Accept split / [ ] Keep as-is / [ ] Modify: ________________
 
 ---
 
@@ -255,7 +255,7 @@ This indicates **Interpretation A** (about IDE lock-in, not backend lock-in).
 |----|----------|----------|---------------|
 | 7.1 | Which backend languages can it generate? | 🟡 HIGH | List: Node.js, Python, Go, Rust, Other |
 
-**Your Decision**: [ ] Accept / [ ] Keep as-is
+**Your Decision**: [x ] Accept / [ ] Keep as-is
 
 ---
 
@@ -274,7 +274,7 @@ This indicates **Interpretation A** (about IDE lock-in, not backend lock-in).
 |----|----------|----------|---------------|
 | 11.3 | Can you **bring your own API keys (BYOK)** for AI providers (OpenAI, Anthropic, etc.)? | 🟡 HIGH | Yes / Enterprise only / No |
 
-**Your Decision**: [ ] Accept / [ ] Keep as-is
+**Your Decision**: [x ] Accept / [ ] Keep as-is
 
 ---
 
@@ -295,7 +295,7 @@ This indicates **Interpretation A** (about IDE lock-in, not backend lock-in).
 |----|----------|----------|---------------|
 | 6.3 | What is the maximum **AI context size**? | 🟡 HIGH | Specify unit: tokens / files / LOC / characters (e.g., "200K tokens" or "50 files") |
 
-**Your Decision**: [ ] Accept / [ ] Standardize to one unit: ________________
+**Your Decision**: [x ] Accept / [ ] Standardize to one unit: ________________
 
 ---
 
@@ -328,7 +328,7 @@ This indicates **Interpretation A** (about IDE lock-in, not backend lock-in).
 - Tool exports standard package.json (3.3 = YES)
 - But you need to run `npm install` first (3.4 = "Requires setup")
 
-**Your Decision**: [ ] Keep both with clarification / [ ] Merge / [ ] Other: ________________
+**Your Decision**: [ x] Keep both with clarification / [ ] Merge / [ ] Other: ________________
 
 ---
 
@@ -350,7 +350,7 @@ These questions help determine if current priority levels match YOUR needs:
 - [ ] Downgrade to 🟡 HIGH (strongly prefer but not required)
 - [ ] Downgrade to 🟢 MEDIUM (nice-to-have for flexibility)
 
-**Your Decision**: ________________
+**Your Decision**: ___nice-to-have_____________
 
 ---
 
@@ -368,7 +368,7 @@ These questions help determine if current priority levels match YOUR needs:
 - [ ] Downgrade to 🟡 HIGH (prefer but can accept cloud IDE)
 - [ ] Split: Self-hosted AI is critical, IDE location flexible
 
-**Your Decision**: ________________
+**Your Decision**: Unknown yet________________
 
 ---
 
@@ -402,9 +402,9 @@ These questions help determine if current priority levels match YOUR needs:
 
 **Options**:
 - [ ] Keep as 🔴 CRITICAL (TypeScript is primary language)
-- [ ] Downgrade to 🟡 HIGH (prefer TS but JS acceptable)
+- [X ] Downgrade to 🟡 HIGH (prefer TS but JS acceptable)
 
-**Your Decision**: ________________
+**Your Decision**: downgrade________________
 
 ---
 
@@ -418,10 +418,10 @@ These questions help determine if current priority levels match YOUR needs:
 - Is this regulatory or practical?
 
 **Options**:
-- [ ] Keep as 🔴 CRITICAL (zero lock-in tolerance)
+- [ X] Keep as 🔴 CRITICAL (zero lock-in tolerance)
 - [ ] Downgrade to 🟡 HIGH (prefer portability but can accept some dependencies)
 
-**Your Decision**: ________________
+**Your Decision**: CRITICAL________________
 
 ---
 
@@ -437,7 +437,7 @@ Are there important questions we should ADD?
 - Medium teams (10-50)
 - Enterprise teams (50+)
 
-**Add this question?**: [ ] Yes / [ ] No
+**Add this question?**: [x ] Yes / [ ] No
 
 ---
 
@@ -448,7 +448,7 @@ Are there important questions we should ADD?
 - Moderate (1-3 days)
 - Significant (1+ weeks)
 
-**Add this question?**: [ ] Yes / [ ] No
+**Add this question?**: [ x] Yes / [ ] No
 
 ---
 
@@ -460,7 +460,7 @@ Are there important questions we should ADD?
 - Early-stage startup
 - Open source project
 
-**Add this question?**: [ ] Yes / [ ] No
+**Add this question?**: [x ] Yes / [ ] No
 
 ---
 
