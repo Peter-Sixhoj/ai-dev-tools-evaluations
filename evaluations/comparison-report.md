@@ -11,7 +11,19 @@
 
 This report compares six AI-powered development tools against standardized criteria covering deployment, code ownership, framework support, collaboration, and 17 other dimensions. Each tool was evaluated on 103 decision questions, scored on a 100-point scale with weighted priorities (MUST-HAVE: 40 points, SHOULD-HAVE: 45 points, NICE-TO-HAVE: 15 points).
 
-### Overall Rankings
+## Conclusion
+
+For **enterprise teams requiring code portability**, only **Cursor, Windsurf, Bolt.new, and Replit** pass all critical requirements. Cursor and Windsurf lead for large-scale codebases with polyglot support, while Bolt.new and Replit excel at rapid prototyping with zero setup.
+
+**Lovable** offers fast prototyping but creates Supabase dependency. **Base44** provides extreme convenience but severe vendor lock-in makes it unsuitable for teams requiring portable, self-sufficient code.
+
+The choice between top-tier tools (Cursor vs. Windsurf vs. Bolt.new vs. Replit) depends on:
+1. **Deployment model preference**: Desktop (Cursor/Windsurf) vs. Cloud (Bolt.new/Replit)
+2. **Language requirements**: Polyglot (Cursor/Windsurf/Replit) vs. JavaScript-only (Bolt.new)
+3. **Collaboration needs**: Async Git (Cursor/Windsurf) vs. Real-time (Bolt.new/Replit)
+4. **Budget constraints**: Windsurf ($15) vs. Cursor ($20) vs. Bolt.new ($20) vs. Replit ($25-40)
+
+All four qualified tools provide enterprise-grade AI development capabilities with zero vendor lock-in—the final choice depends on team-specific priorities.### Overall Rankings
 
 | Rank | Tool | Total Score | MUST-HAVE | SHOULD-HAVE | NICE-TO-HAVE | Status |
 |------|------|-------------|-----------|-------------|--------------|--------|
@@ -730,16 +742,4 @@ All evaluations completed: 2026-02-04
 
 ---
 
-## Conclusion
 
-For **enterprise teams requiring code portability**, only **Cursor, Windsurf, Bolt.new, and Replit** pass all critical requirements. Cursor and Windsurf lead for large-scale codebases with polyglot support, while Bolt.new and Replit excel at rapid prototyping with zero setup.
-
-**Lovable** offers fast prototyping but creates Supabase dependency. **Base44** provides extreme convenience but severe vendor lock-in makes it unsuitable for teams requiring portable, self-sufficient code.
-
-The choice between top-tier tools (Cursor vs. Windsurf vs. Bolt.new vs. Replit) depends on:
-1. **Deployment model preference**: Desktop (Cursor/Windsurf) vs. Cloud (Bolt.new/Replit)
-2. **Language requirements**: Polyglot (Cursor/Windsurf/Replit) vs. JavaScript-only (Bolt.new)
-3. **Collaboration needs**: Async Git (Cursor/Windsurf) vs. Real-time (Bolt.new/Replit)
-4. **Budget constraints**: Windsurf ($15) vs. Cursor ($20) vs. Bolt.new ($20) vs. Replit ($25-40)
-
-All four qualified tools provide enterprise-grade AI development capabilities with zero vendor lock-in—the final choice depends on team-specific priorities.
