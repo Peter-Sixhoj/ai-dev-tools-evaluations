@@ -22,6 +22,7 @@ The choice between top-tier tools (Cursor vs. Windsurf vs. Bolt.new vs. Replit) 
 2. **Language requirements**: Polyglot (Cursor/Windsurf/Replit) vs. JavaScript-only (Bolt.new)
 3. **Collaboration needs**: Async Git (Cursor/Windsurf) vs. Real-time (Bolt.new/Replit)
 4. **Budget constraints**: Windsurf ($15) vs. Cursor ($20) vs. Bolt.new ($20) vs. Replit ($25-40)
+5. **Quick prototyping**: Full-stack scaffolding (Bolt.new/Lovable/Replit) vs. Incremental development (Cursor/Windsurf)
 
 All four qualified tools provide enterprise-grade AI development capabilities with zero vendor lock-in—the final choice depends on team-specific priorities.### Overall Rankings
 
