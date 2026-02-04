@@ -36,7 +36,7 @@ Read: comparative-research-methodology.md
 **2. Copy Templates**
 ```bash
 # Create new project folder
-mkdir -p projects/your-project-name/{framework,evaluations/raw}
+mkdir -p projects/your-project-name/{framework,evaluations}
 
 # Copy templates
 cp templates/research-context-template.md projects/your-project-name/research-context.md
@@ -48,8 +48,8 @@ cp templates/evaluation-template-template.md projects/your-project-name/framewor
 **3. Follow the 4 Phases**
 - **Phase 0**: Complete `research-context.md` (define your problem)
 - **Phase 1**: Create evaluation framework in `framework/` folder
-- **Phase 2**: Evaluate each option in `evaluations/raw/`
-- **Phase 3**: Generate `evaluations/comparison-report.md`
+- **Phase 2**: Evaluate each option in `evaluations/`
+- **Phase 3**: Generate `comparison-report.md` at project root
 
 ---
 
@@ -72,7 +72,7 @@ cp templates/evaluation-template-template.md projects/your-project-name/framewor
 - Establish evidence standards (P1/P2/P3)
 
 ### Phase 2: Conduct Individual Evaluations
-**Outputs**: `evaluations/raw/[option]-evaluation.md`
+**Outputs**: `evaluations/[option]-evaluation.md`
 
 - Research each option systematically
 - Answer all questions with evidence
@@ -80,12 +80,40 @@ cp templates/evaluation-template-template.md projects/your-project-name/framewor
 - Document strengths and limitations
 
 ### Phase 3: Generate Comparison Report
-**Output**: `evaluations/comparison-report.md`
+**Output**: `comparison-report.md` (at project root)
 
 - Create comparison tables for all dimensions
 - Rank options by total score
 - Map use cases to best options
 - Provide decision framework
+
+---
+
+## Project Structure
+
+Each project follows this structure:
+
+```
+project-name/
+├── README.md                           # Project overview
+├── research-context.md                 # Phase 0: Problem statement
+├── comparison-report.md                # Phase 3: Final synthesis ⭐ PRIME ARTIFACT
+├── framework/                          # Phase 1: Evaluation framework
+│   ├── evaluation-dimensions.md        # Dimensions & questions
+│   ├── scoring-criteria.md             # Priority weights
+│   ├── evaluation-template.md          # Output format specification
+│   └── [optional-rationale.md]         # Optional: Question rationale
+└── evaluations/                        # Phase 2: Individual evaluations
+    ├── option-a-evaluation.md
+    ├── option-b-evaluation.md
+    └── option-c-evaluation.md
+```
+
+**Key Design Principles:**
+- ✅ Comparison report at project root (prime deliverable)
+- ✅ Simple hierarchy (no unnecessary nesting)
+- ✅ Clear phase separation (0→1→2→3)
+- ✅ Consistent naming across projects
 
 ---
 
@@ -98,8 +126,9 @@ cp templates/evaluation-template-template.md projects/your-project-name/framewor
 **Key Finding**: 4 tools pass all critical requirements; 2 disqualified due to vendor lock-in
 
 **View Reports**:
-- [Comparison Report](projects/ai-dev-tools/evaluations/comparison-report.md)
-- [Individual Evaluations](projects/ai-dev-tools/evaluations/raw/)
+- [Comparison Report](projects/ai-dev-tools/comparison-report.md) ⭐
+- [Individual Evaluations](projects/ai-dev-tools/evaluations/)
+- [Project README](projects/ai-dev-tools/README.md)
 
 ---
 

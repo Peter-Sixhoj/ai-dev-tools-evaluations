@@ -8,7 +8,7 @@ Systematic comparison of 6 AI-powered development tools for enterprise TypeScrip
 
 - **Status**: ✅ Complete
 - **Evaluation Date**: 2026-02-04
-- **Framework Version**: evaluation-metrics.md v2.0
+- **Framework Version**: evaluation-dimensions.md v2.0, scoring-criteria.md v2.0
 - **Methodology**: [Comparative Research Methodology](../../comparative-research-methodology.md) v1.0
 - **Evaluator**: AI Development Tools Evaluator v2.0
 
@@ -92,62 +92,65 @@ Systematic comparison of 6 AI-powered development tools for enterprise TypeScrip
 ai-dev-tools/
 ├── README.md                        # This file
 ├── research-context.md              # Phase 0: Problem statement
+├── comparison-report.md             # Phase 3: Final synthesis ⭐ PRIME ARTIFACT
 ├── framework/                       # Phase 1: Evaluation framework
-│   ├── evaluation-metrics.md        # 21 metrics, 103 questions (v2.0)
-│   ├── decision-criteria.md         # MUST/SHOULD/NICE-TO-HAVE weights (v2.0)
+│   ├── evaluation-dimensions.md     # 21 metrics, 103 questions (v2.0)
+│   ├── scoring-criteria.md          # MUST/SHOULD/NICE-TO-HAVE weights (v2.0)
 │   ├── evaluation-template.md       # Output format specification (v2.0)
 │   └── decision-rationale.md        # Optional: Question rationale (v3.0)
-└── evaluations/                     # Phase 2-3: Evaluations & synthesis
-    ├── raw/                         # Phase 2: Individual tool evaluations
-    │   ├── cursor-evaluation.md
-    │   ├── windsurf-evaluation.md
-    │   ├── bolt-evaluation.md
-    │   ├── replit-evaluation.md
-    │   ├── lovable-evaluation.md
-    │   └── base44-evaluation.md
-    └── comparison-report.md         # Phase 3: Final comparison report
+└── evaluations/                     # Phase 2: Individual evaluations
+    ├── cursor-evaluation.md
+    ├── windsurf-evaluation.md
+    ├── bolt-evaluation.md
+    ├── replit-evaluation.md
+    ├── lovable-evaluation.md
+    └── base44-evaluation.md
 ```
 
 ---
 
-## How to Reproduce
+## How to Use This Evaluation
 
-### 1. Review Framework Files
-
-```bash
-cd projects/ai-dev-tools/framework/
-cat evaluation-metrics.md    # See all 21 metrics and 103 questions
-cat decision-criteria.md     # See priority assignments
-```
-
-### 2. Read Individual Evaluations
+### 1. Start with the Comparison Report ⭐
 
 ```bash
-cd evaluations/raw/
-cat cursor-evaluation.md     # See detailed Cursor evaluation
-cat windsurf-evaluation.md   # See detailed Windsurf evaluation
-# ... etc for all 6 tools
+cat comparison-report.md
 ```
 
-### 3. Review Comparison Report
+The comparison report provides:
+- Overall rankings with scores
+- Side-by-side dimension comparisons
+- Use case recommendations
+- Decision framework
+
+### 2. Review Framework Details
+
+```bash
+cd framework/
+cat evaluation-dimensions.md    # See all 21 metrics and 103 questions
+cat scoring-criteria.md         # See priority assignments
+```
+
+### 3. Deep Dive into Specific Tools
 
 ```bash
 cd evaluations/
-cat comparison-report.md     # Final synthesis with recommendations
+cat cursor-evaluation.md        # Detailed Cursor evaluation
+cat windsurf-evaluation.md      # Detailed Windsurf evaluation
+# ... etc for all 6 tools
 ```
 
-### 4. Verify Evidence
+### 4. Understand the Context
 
-All claims are cited with evidence levels:
-- **P1** (Primary): Official documentation, vendor statements
-- **P2** (Secondary): Verified user reports (<6 months old)
-- **P3** (Tertiary): Reasonable inferences (marked clearly)
+```bash
+cat research-context.md         # Requirements, stakeholders, use cases
+```
 
 ---
 
 ## Evaluation Framework Summary
 
-### 21 Metrics Evaluated
+### 21 Dimensions Evaluated
 
 1. Deployment Model
 2. Package Management
@@ -180,13 +183,13 @@ All claims are cited with evidence levels:
 
 ---
 
-## Links
+## Quick Links
 
-- **Full Comparison Report**: [comparison-report.md](evaluations/comparison-report.md)
-- **Individual Evaluations**: [evaluations/raw/](evaluations/raw/)
-- **Framework Details**: [framework/](framework/)
-- **Research Context**: [research-context.md](research-context.md)
-- **Methodology**: [Comparative Research Methodology](../../comparative-research-methodology.md)
+- **⭐ [Comparison Report](comparison-report.md)** - Final synthesis (START HERE)
+- **[Research Context](research-context.md)** - Problem statement & requirements
+- **[Framework](framework/)** - Evaluation dimensions & scoring
+- **[Individual Evaluations](evaluations/)** - Detailed tool assessments
+- **[Methodology](../../comparative-research-methodology.md)** - Generic research process
 
 ---
 
@@ -197,8 +200,9 @@ If using this evaluation in decision-making, please cite:
 ```
 AI Development Tools Evaluation (2026)
 Methodology: Comparative Research v1.0
-Framework: evaluation-metrics.md v2.0 (21 metrics, 103 questions)
+Framework: evaluation-dimensions.md v2.0 (21 metrics, 103 questions)
 Evaluation Date: 2026-02-04
+Repository: https://github.com/Peter-Sixhoj/ai-dev-tools-evaluations
 ```
 
 ---
