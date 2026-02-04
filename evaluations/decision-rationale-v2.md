@@ -1,10 +1,10 @@
 # AI Development Tools Decision Rationale v2.0
 
-**Version**: 2.0  
+**Version**: 2.0.1  
 **Date Created**: 2026-02-04  
 **Last Updated**: 2026-02-04  
 **Supersedes**: decision-rationale.md v1.0  
-**References**: decision-criteria-v2.md  
+**References**: decision-criteria-v2.md v2.0.1  
 **Status**: Active
 
 ## Changes from v1.0
@@ -15,10 +15,11 @@ This version includes updated rationale for:
 - Priority adjustments with new justifications
 - 3 new questions (21.1, 21.2, 21.3)
 - Clarified critical questions (3.2, 10.1)
+- Updated terminology to MUST-HAVE/SHOULD-HAVE/NICE-TO-HAVE (v2.0.1)
 
 ---
 
-## Critical Questions (🔴) - The 4 Deal-Breakers
+## MUST-HAVE Questions (🔴) - The 4 Deal-Breakers
 
 These questions determine **code portability and vendor lock-in avoidance**. Failing these means you cannot easily migrate away from the tool or deploy your applications freely.
 
@@ -26,7 +27,7 @@ These questions determine **code portability and vendor lock-in avoidance**. Fai
 
 **Why This Matters**: You need freedom to deploy your applications wherever your business requires—AWS, GCP, Azure, on-premises, or any hosting provider. Platform-locked deployment means ongoing dependency on vendor infrastructure, pricing, and availability.
 
-**Decision Impact**: CRITICAL for deployment flexibility and avoiding operational lock-in.
+**Decision Impact**: MUST-HAVE for deployment flexibility and avoiding operational lock-in.
 
 **Evidence to Look For**: 
 - Exported code runs on any hosting provider
@@ -45,7 +46,7 @@ These questions determine **code portability and vendor lock-in avoidance**. Fai
 
 **Why This Matters**: Incomplete code export means you lose work if you need to migrate tools. If only 80% exports, you must recreate the missing 20%, creating substantial migration costs and delays.
 
-**Decision Impact**: CRITICAL for avoiding vendor lock-in and ensuring work is never lost.
+**Decision Impact**: MUST-HAVE for avoiding vendor lock-in and ensuring work is never lost.
 
 **Evidence to Look For**: 
 - Export/download functionality
@@ -59,7 +60,7 @@ These questions determine **code portability and vendor lock-in avoidance**. Fai
 
 **Why This Matters**: Proprietary runtime dependencies mean your application cannot run without vendor-specific SDKs, libraries, or services. This creates permanent vendor lock-in even after exporting code.
 
-**Decision Impact**: CRITICAL for true code ownership and portability.
+**Decision Impact**: MUST-HAVE for true code ownership and portability.
 
 **What Counts as Proprietary Dependency**:
 - ❌ BAD: Requires vendor-specific runtime library to execute
@@ -85,7 +86,7 @@ These questions determine **code portability and vendor lock-in avoidance**. Fai
 
 **Why This Matters**: IDE lock-in means you cannot use industry-standard tools, onboard new developers easily, or maintain projects long-term. If projects only run inside the tool's IDE, you're locked in.
 
-**Decision Impact**: CRITICAL for development flexibility and avoiding tool dependency.
+**Decision Impact**: MUST-HAVE for development flexibility and avoiding tool dependency.
 
 **What This Checks**:
 - Can you run `npm start` / `cargo run` in VS Code, IntelliJ, or terminal?
@@ -100,7 +101,7 @@ These questions determine **code portability and vendor lock-in avoidance**. Fai
 
 ---
 
-## High Priority Questions (🟡) - Core Functionality
+## SHOULD-HAVE Questions (🟡) - Core Functionality
 
 These questions determine **productivity, developer experience, and feature completeness**. Important for daily work but not absolute deal-breakers.
 
@@ -108,7 +109,7 @@ These questions determine **productivity, developer experience, and feature comp
 
 **Why This Matters**: Desktop apps provide lower latency, work offline, avoid browser limitations, and integrate better with local dev tools. Web-only means constant internet dependency and potential performance issues.
 
-**Decision Impact**: HIGH for developer experience and productivity.
+**Decision Impact**: SHOULD-HAVE for developer experience and productivity.
 
 ---
 
@@ -116,7 +117,7 @@ These questions determine **productivity, developer experience, and feature comp
 
 **Why This Matters**: Local IDEs feel more responsive and work offline. Cloud IDEs enable browser access but require internet. Understanding the tradeoffs helps match tool to your work environment.
 
-**Decision Impact**: HIGH for workflow fit and performance expectations.
+**Decision Impact**: SHOULD-HAVE for workflow fit and performance expectations.
 
 ---
 
@@ -124,7 +125,7 @@ These questions determine **productivity, developer experience, and feature comp
 
 **Why This Matters**: AI processing location affects latency, data privacy, and offline capability. Cloud processing enables better models but requires internet. Self-hosted provides control but requires infrastructure.
 
-**Decision Impact**: HIGH for performance and data privacy considerations.
+**Decision Impact**: SHOULD-HAVE for performance and data privacy considerations.
 
 ---
 
@@ -132,7 +133,7 @@ These questions determine **productivity, developer experience, and feature comp
 
 **Why This Matters**: npm is the standard for TypeScript/JavaScript. Without npm support, you cannot use React, Next.js, or thousands of essential packages.
 
-**Decision Impact**: HIGH for TypeScript/JavaScript development capability.
+**Decision Impact**: SHOULD-HAVE for TypeScript/JavaScript development capability.
 
 ---
 
@@ -140,7 +141,7 @@ These questions determine **productivity, developer experience, and feature comp
 
 **Why This Matters**: Monorepos organize multiple projects with shared dependencies. Tools that don't understand monorepo structure provide incorrect suggestions and break builds.
 
-**Decision Impact**: HIGH for teams using monorepo architecture.
+**Decision Impact**: SHOULD-HAVE for teams using monorepo architecture.
 
 ---
 
@@ -148,7 +149,7 @@ These questions determine **productivity, developer experience, and feature comp
 
 **Why This Matters**: Standard formats (package.json, standard directories) mean exported code works immediately with industry tools. Proprietary formats require conversion.
 
-**Decision Impact**: HIGH for toolchain compatibility.
+**Decision Impact**: SHOULD-HAVE for toolchain compatibility.
 
 ---
 
@@ -156,7 +157,7 @@ These questions determine **productivity, developer experience, and feature comp
 
 **Why This Matters**: Immediate execution means no setup friction. Requiring modifications to run wastes time and creates migration barriers.
 
-**Decision Impact**: HIGH for smooth workflow transitions.
+**Decision Impact**: SHOULD-HAVE for smooth workflow transitions.
 
 **Clarification**: "Zero modifications" means:
 - ✅ YES: `npm install && npm start` works immediately
@@ -170,9 +171,9 @@ These questions determine **productivity, developer experience, and feature comp
 
 **Why This Matters**: First-class TypeScript means full type inference, intelligent autocomplete, and TypeScript-aware AI. Basic support leads to type errors and poor suggestions.
 
-**Decision Impact**: HIGH for TypeScript development quality.
+**Decision Impact**: SHOULD-HAVE for TypeScript development quality.
 
-**Note**: Downgraded from CRITICAL to HIGH because JavaScript-only is acceptable for some projects.
+**Note**: Downgraded from MUST-HAVE to SHOULD-HAVE because JavaScript-only is acceptable for some projects.
 
 ---
 
@@ -180,7 +181,7 @@ These questions determine **productivity, developer experience, and feature comp
 
 **Why This Matters**: Framework-specific support means scaffolding, best practices, and intelligent suggestions. Generic support misses framework patterns.
 
-**Decision Impact**: HIGH for development speed in these frameworks.
+**Decision Impact**: SHOULD-HAVE for development speed in these frameworks.
 
 ---
 
@@ -188,7 +189,7 @@ These questions determine **productivity, developer experience, and feature comp
 
 **Why This Matters**: Git integration enables version control without context switching. Direct GitHub/GitLab push streamlines collaboration. PR workflows are standard for teams.
 
-**Decision Impact**: HIGH for team collaboration and professional workflows.
+**Decision Impact**: SHOULD-HAVE for team collaboration and professional workflows.
 
 ---
 
@@ -196,7 +197,7 @@ These questions determine **productivity, developer experience, and feature comp
 
 **Why This Matters**: Understanding file relationships, cross-file refactoring, and large context windows enable working on complex features spanning many files.
 
-**Decision Impact**: HIGH for complex application development.
+**Decision Impact**: SHOULD-HAVE for complex application development.
 
 ---
 
@@ -204,7 +205,7 @@ These questions determine **productivity, developer experience, and feature comp
 
 **Why This Matters**: Backend generation (multiple languages, database schemas, APIs) enables full-stack development. Frontend-only doubles development time.
 
-**Decision Impact**: HIGH for full-stack applications.
+**Decision Impact**: SHOULD-HAVE for full-stack applications.
 
 ---
 
@@ -212,7 +213,7 @@ These questions determine **productivity, developer experience, and feature comp
 
 **Why This Matters**: Git workflows (branches, PRs, code review) are standard for professional teams. Essential for distributed teams and code quality.
 
-**Decision Impact**: HIGH for team development.
+**Decision Impact**: SHOULD-HAVE for team development.
 
 ---
 
@@ -220,7 +221,7 @@ These questions determine **productivity, developer experience, and feature comp
 
 **Why This Matters**: Offline work enables development anywhere. Debugging is essential for fixing bugs efficiently.
 
-**Decision Impact**: HIGH for uninterrupted development.
+**Decision Impact**: SHOULD-HAVE for uninterrupted development.
 
 ---
 
@@ -228,7 +229,7 @@ These questions determine **productivity, developer experience, and feature comp
 
 **Why This Matters**: Different models have different strengths. Model switching and BYOK enable optimization and cost control.
 
-**Decision Impact**: HIGH for code quality and cost management.
+**Decision Impact**: SHOULD-HAVE for code quality and cost management.
 
 ---
 
@@ -236,7 +237,7 @@ These questions determine **productivity, developer experience, and feature comp
 
 **Why This Matters**: Interface type (desktop, web, VS Code fork/extension) determines workflow integration and familiarity.
 
-**Decision Impact**: HIGH for developer adoption and productivity.
+**Decision Impact**: SHOULD-HAVE for developer adoption and productivity.
 
 ---
 
@@ -244,7 +245,7 @@ These questions determine **productivity, developer experience, and feature comp
 
 **Why This Matters**: File count limits, context window, and enterprise-scale validation determine if tool works with your actual codebase size.
 
-**Decision Impact**: HIGH for ensuring tool matches your scale.
+**Decision Impact**: SHOULD-HAVE for ensuring tool matches your scale.
 
 **Clarification**:
 - **13.1 (File count)**: Storage/indexing capacity
@@ -257,7 +258,7 @@ These questions determine **productivity, developer experience, and feature comp
 
 **Why This Matters**: Supabase scaffolding and type-safe API clients accelerate backend integration with safety.
 
-**Decision Impact**: HIGH for Supabase-based projects and type safety.
+**Decision Impact**: SHOULD-HAVE for Supabase-based projects and type safety.
 
 ---
 
@@ -265,7 +266,7 @@ These questions determine **productivity, developer experience, and feature comp
 
 **Why This Matters**: Full app generation, feature generation, and inline completion determine development velocity.
 
-**Decision Impact**: HIGH for rapid development.
+**Decision Impact**: SHOULD-HAVE for rapid development.
 
 ---
 
@@ -273,7 +274,7 @@ These questions determine **productivity, developer experience, and feature comp
 
 **Why This Matters**: VS Code marketplace has 40k+ extensions. Support means using existing workflow tools.
 
-**Decision Impact**: HIGH for preserving workflows.
+**Decision Impact**: SHOULD-HAVE for preserving workflows.
 
 ---
 
@@ -281,7 +282,7 @@ These questions determine **productivity, developer experience, and feature comp
 
 **Why This Matters**: Free tier enables evaluation. Cost per developer affects budget. Enterprise licensing enables procurement.
 
-**Decision Impact**: HIGH for budget and adoption decisions.
+**Decision Impact**: SHOULD-HAVE for budget and adoption decisions.
 
 ---
 
@@ -289,7 +290,7 @@ These questions determine **productivity, developer experience, and feature comp
 
 **Why This Matters**: Security scanning detects vulnerabilities proactively. Auth scaffolding reduces security implementation errors.
 
-**Decision Impact**: HIGH for secure applications.
+**Decision Impact**: SHOULD-HAVE for secure applications.
 
 ---
 
@@ -297,7 +298,7 @@ These questions determine **productivity, developer experience, and feature comp
 
 **Why This Matters**: Tools optimized for different team sizes. Solo tools don't scale; enterprise tools overwhelm small teams.
 
-**Decision Impact**: HIGH for matching tool to team size.
+**Decision Impact**: SHOULD-HAVE for matching tool to team size.
 
 ---
 
@@ -305,11 +306,11 @@ These questions determine **productivity, developer experience, and feature comp
 
 **Why This Matters**: Vendor stability affects long-term tool availability. Early-stage startups risk shutdown; established vendors provide continuity.
 
-**Decision Impact**: HIGH for long-term investment decisions.
+**Decision Impact**: SHOULD-HAVE for long-term investment decisions.
 
 ---
 
-## Medium Priority Questions (🟢) - Nice-to-Have
+## NICE-TO-HAVE Questions (🟢) - Bonus Features
 
 These questions provide **additional value** but are not decisive in tool selection.
 
@@ -319,7 +320,7 @@ These questions provide **additional value** but are not decisive in tool select
 
 **Decision Impact**: NICE-TO-HAVE for data sovereignty preferences.
 
-**Note**: Downgraded from CRITICAL to nice-to-have because:
+**Note**: Downgraded from MUST-HAVE to NICE-TO-HAVE because:
 - Main concern is end-product portability (covered by 1.1b)
 - Cloud IDE acceptable if code exports cleanly
 - Most teams can work with cloud-based development
@@ -332,7 +333,7 @@ These questions provide **additional value** but are not decisive in tool select
 
 **Decision Impact**: NICE-TO-HAVE unless you work in defense/classified environments.
 
-**Note**: Downgraded from CRITICAL to nice-to-have because:
+**Note**: Downgraded from MUST-HAVE to NICE-TO-HAVE because:
 - User confirmed not working in classified/defense
 - Future-proofing rather than current requirement
 - Internet access acceptable for current use case
@@ -352,6 +353,11 @@ These questions provide **additional value** but are not decisive in tool select
 **Why This Matters**: Cargo support enables Rust development.
 
 **Decision Impact**: NICE-TO-HAVE for Rust projects.
+
+**Note**: Downgraded from MUST-HAVE to NICE-TO-HAVE because:
+- Not actively developing Rust today
+- Future-proofing rather than current requirement
+- ALL 6 evaluated tools failed or barely passed this
 
 ---
 
@@ -376,11 +382,6 @@ These questions provide **additional value** but are not decisive in tool select
 **Why This Matters**: Rust LSP provides type checking and intelligent completion.
 
 **Decision Impact**: NICE-TO-HAVE for Rust development.
-
-**Note**: Downgraded from CRITICAL to nice-to-have because:
-- Not actively developing Rust today
-- Future-proofing rather than current requirement
-- ALL 6 evaluated tools failed or barely passed this
 
 ---
 
@@ -545,6 +546,10 @@ These questions provide **additional value** but are not decisive in tool select
 ---
 
 ## Change Log
+
+### v2.0.1 (2026-02-04)
+- Updated all terminology from CRITICAL/HIGH/MEDIUM to MUST-HAVE/SHOULD-HAVE/NICE-TO-HAVE
+- Improved consistency with decision-criteria-v2.md v2.0.1
 
 ### v2.0 (2026-02-04)
 - Updated rationale for all 4 CRITICAL questions
