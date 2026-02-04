@@ -1,14 +1,18 @@
 # AI Development Tools Evaluation Template
 
-**Version**: 1.0  
+**Version**: 2.0  
 **Date Created**: 2026-02-03  
-**Last Updated**: 2026-02-03  
-**References**: evaluation-metrics.md v1.0  
+**Last Updated**: 2026-02-04  
+**References**: evaluation-metrics.md v2.0, decision-criteria.md v2.0  
 **Status**: Active
 
 ## Purpose
 
-This template defines the structure, formatting, and evidence requirements for all AI development tool evaluations. Use in conjunction with `evaluation-metrics.md` which defines the 20 metrics to assess.
+This template defines the structure, formatting, and evidence requirements for all AI development tool evaluations. Use in conjunction with:
+- `evaluation-metrics.md` (v2.0) which defines the 20 metrics + 103 embedded decision questions
+- `decision-criteria.md` (v2.0) which provides question definitions and priority levels
+
+**Key Enhancement (v2.0)**: Each metric section now includes sub-sections for embedded decision questions, enabling evaluations to automatically answer all 103 critical decision criteria while maintaining narrative depth.
 
 ## Report Structure
 
@@ -24,32 +28,103 @@ Start each evaluation with **2-3 sentences** covering:
 
 ---
 
-### Metric Sections
+## Metric Sections with Embedded Questions
 
 Create a dedicated section for each of the **20 metrics** defined in `evaluation-metrics.md` using this structure:
 
-**Section Header**: Use metric name exactly as defined in evaluation-metrics.md (use `##` heading level)
+### Section Header
+Use metric name exactly as defined in evaluation-metrics.md (use `##` heading level)
 
-**Content**: 2-4 sentences covering:
-1. **Current capability assessment** - What it does and does not do
-2. **Evidence with citations** - Official documentation, reviews, or verified sources
-3. **Limitations or constraints** - Discovered restrictions or caveats
+### Capability Assessment
+**Format**: 2-4 sentences covering:
+1. Current capability assessment - What it does and does not do
+2. Evidence with citations - Official documentation, reviews, or verified sources
+3. Limitations or constraints - Discovered restrictions or caveats
 
-**Example**:
+### Embedded Decision Questions
+**Format**: Sub-section (use `###` heading) with answers to all embedded questions for that metric
+
+Structure each question answer as:
+```markdown
+- **[Priority Icon] [Question ID]: [Question Text]**
+  Answer: [Specific response per question's answer format]
+  Evidence: [P1/P2/P3 citation]
+  Notes: [Any clarifications or context]
+```
+
+**Example for Metric 5 (Git Integration)**:
 
 ```markdown
 ## 5. Git Integration
 
-[Product Name] provides native Git integration through its VS Code-based IDE. Users can commit, push, pull, and create branches directly from the UI without command-line interaction. GitHub pull request workflows are fully supported with inline code review capabilities. However, advanced Git operations like interactive rebase or cherry-picking require dropping to the integrated terminal.
+[Narrative assessment paragraph here]
 
 **Evidence**: Official documentation v2.3 (January 2026) confirms UI-based Git operations. Community reports indicate terminal access for advanced Git features (P2 evidence from verified user reports December 2025).
 
 **Limitations**: No GitLab or Bitbucket native integration; GitHub-focused workflows only.
+
+### Decision Questions for Git Integration
+
+- **🟡 SHOULD-HAVE | 5.1: Does it have native Git integration?**
+  Answer: Yes
+  Evidence: Official docs show built-in Git UI with commit/push/pull operations
+  Notes: Terminal access available for advanced operations
+
+- **🟡 SHOULD-HAVE | 5.2: Can you push directly to GitHub/GitLab?**
+  Answer: GitHub only
+  Evidence: Verified user reports confirm GitHub native integration, GitLab requires manual CLI
+  Notes: GitLab support on roadmap (Beta Q2 2026)
+
+- **🟡 SHOULD-HAVE | 5.3: Does it support pull request workflows?**
+  Answer: Yes
+  Evidence: Official feature documentation, tested on 10+ enterprise repos
+  Notes: Full PR review UI with commenting, approval gates, CI/CD integration
+
+- **🟢 NICE-TO-HAVE | 5.4: Does it have a visual Git UI?**
+  Answer: Yes
+  Evidence: VS Code-like Git panel with visual file staging, history, blame
+  Notes: N/A
+
+- **🟢 NICE-TO-HAVE | 5.5: Can it handle branch management?**
+  Answer: Yes
+  Evidence: Official docs, tested branch creation, switching, merging
+  Notes: Interactive rebase requires terminal
 ```
 
 ---
 
-### Key Differentiators
+## Complete Metric Template
+
+Here's the full structure to use for each metric section:
+
+```markdown
+## [X]. [Metric Name]
+
+### Capability Assessment
+[2-4 sentence narrative assessment]
+
+**Evidence**: [Citations with P1/P2/P3 markers]
+
+**Limitations**: [Specific constraints]
+
+### Decision Questions for [Metric Name]
+
+- **[Priority] | [ID]: [Question]**
+  Answer: [Specific response per answer format]
+  Evidence: [P1/P2/P3 source]
+  Notes: [Additional context]
+
+- **[Priority] | [ID]: [Question]**
+  Answer: [Specific response per answer format]
+  Evidence: [P1/P2/P3 source]
+  Notes: [Additional context]
+
+[Repeat for all embedded questions in this metric]
+```
+
+---
+
+## Key Differentiators Section
 
 Conclude with a dedicated section highlighting:
 - What makes this tool unique compared to similar products
@@ -79,17 +154,45 @@ Conclude with a dedicated section highlighting:
 
 ---
 
+## Decision Scorecard Summary
+
+After the Key Differentiators section, include a **Decision Scorecard** that summarizes the evaluation against decision criteria:
+
+```markdown
+## Decision Scorecard
+
+### Critical Requirements (MUST-HAVE)
+| Question | Answer | Status |
+|----------|--------|--------|
+| 1.1b: Applications deployable outside platform? | Yes | ✅ PASS |
+| 3.1: Export 100% of code? | Yes | ✅ PASS |
+| 3.2: No proprietary runtime dependencies? | Yes | ✅ PASS |
+| 10.1: Standard dev commands work? | Yes | ✅ PASS |
+| **MUST-HAVE SCORE** | **40/40** | **✅ ALL PASS** |
+
+### Scoring Summary
+- **MUST-HAVE Score**: 40/40 (100%)
+- **SHOULD-HAVE Score**: 38/45 (84%)
+- **NICE-TO-HAVE Score**: 12/15 (80%)
+- **TOTAL SCORE**: 90/100
+
+### Assessment
+[2-3 sentence summary of evaluation results and primary findings]
+```
+
+---
+
 ## Formatting Requirements
 
 ### Markdown Standards
 
 - Use `##` (h2) for metric section headers
-- Use `###` (h3) for subsections within metrics if needed
-- Use bullet points (`-` or `*`) for lists of features and capabilities
+- Use `###` (h3) for subsections (Decision Questions, etc.)
+- Use bullet points (`-` or `*`) for question lists
 - Use comparison tables **only** when directly comparing multiple specific values
-- Keep sections concise: **2-4 sentences per metric** unless complexity requires more
+- Keep narrative sections concise: **2-4 sentences per metric** unless complexity requires more
 - Use **bold** for emphasis on key terms or capabilities
-- Use `code formatting` for technical terms, file paths, commands
+- Use `code formatting` for technical terms, file paths, commands, question IDs
 
 ### Code Blocks
 
@@ -107,7 +210,7 @@ interface Config {
 
 ### Tables
 
-Use tables for structured comparisons only:
+Use tables for structured comparisons and scoring only:
 
 ```markdown
 | Feature | Support Level | Evidence |
@@ -196,10 +299,15 @@ Conclude each evaluation with:
 **File Path**: `/evaluations/raw-threads/[product-name]-evaluation.md`  
 **Evaluation Date**: [YYYY-MM-DD]  
 **Evaluator**: [Name/ID]  
-**Metrics Version**: evaluation-metrics.md v1.0  
-**Template Version**: evaluation-template.md v1.0  
+**Metrics Version**: evaluation-metrics.md v2.0  
+**Template Version**: evaluation-template.md v2.0  
+**Decision Criteria**: decision-criteria.md v2.0  
 
 **Status**: Ready for synthesis via GitHub Actions
+
+**Questions Answered**: 103/103 decision questions
+**Metrics Covered**: 20/20
+**Critical Requirements**: [X/4 MUST-HAVE questions passed]
 ```
 
 ### File Naming Convention
@@ -259,7 +367,7 @@ When assessing integration capability and suitability, evaluate against this **t
 **Technical and Precise**:
 - Use specific version numbers, file counts, context window sizes
 - Avoid vague terms like "good" or "fast" without quantification
-- Specify exact limitations ("10k file limit" vs "large codebase support")
+- Specify exact limitations (e.g., "10k file limit" vs "large codebase support")
 
 **Direct and Evidence-Based**:
 - State capabilities clearly: "Supports X" not "Claims to support X"
@@ -299,8 +407,9 @@ Use this as a starting point for new evaluations:
 **Evaluation Date**: YYYY-MM-DD  
 **Product Version**: [version]  
 **Evaluator**: [name]  
-**Metrics Version**: evaluation-metrics.md v1.0  
-**Template Version**: evaluation-template.md v1.0
+**Metrics Version**: evaluation-metrics.md v2.0  
+**Template Version**: evaluation-template.md v2.0  
+**Decision Criteria**: decision-criteria.md v2.0
 
 ## Executive Summary
 
@@ -310,83 +419,36 @@ Use this as a starting point for new evaluations:
 
 ## 1. Deployment Model
 
-[Assessment + Evidence + Limitations]
+### Capability Assessment
+[Narrative assessment]
+
+**Evidence**: [Citations]
+
+**Limitations**: [Constraints]
+
+### Decision Questions for Deployment Model
+
+- **🟢 NICE-TO-HAVE | 1.1a: [Question]**
+  Answer: [Response]
+  Evidence: [Citation]
+  Notes: [Context]
+
+[Repeat for all 7 questions in this metric: 1.1a, 1.1b, 1.2, 1.3, 1.4a, 1.4b, 1.5]
 
 ## 2. Package Management
 
-[Assessment + Evidence + Limitations]
+### Capability Assessment
+[Narrative assessment]
 
-## 3. Code Ownership
+**Evidence**: [Citations]
 
-[Assessment + Evidence + Limitations]
+**Limitations**: [Constraints]
 
-## 4. Framework Support
+### Decision Questions for Package Management
 
-[Assessment + Evidence + Limitations]
+[5 questions: 2.1-2.5]
 
-## 5. Git Integration
-
-[Assessment + Evidence + Limitations]
-
-## 6. Multi-file Context Awareness
-
-[Assessment + Evidence + Limitations]
-
-## 7. Backend Capabilities
-
-[Assessment + Evidence + Limitations]
-
-## 8. Collaboration Features
-
-[Assessment + Evidence + Limitations]
-
-## 9. Deployment Automation
-
-[Assessment + Evidence + Limitations]
-
-## 10. Local Development Support
-
-[Assessment + Evidence + Limitations]
-
-## 11. AI Model Selection
-
-[Assessment + Evidence + Limitations]
-
-## 12. IDE Type
-
-[Assessment + Evidence + Limitations]
-
-## 13. Codebase Scale Limits
-
-[Assessment + Evidence + Limitations]
-
-## 14. API/Service Integration
-
-[Assessment + Evidence + Limitations]
-
-## 15. Code Generation Scope
-
-[Assessment + Evidence + Limitations]
-
-## 16. Extension Ecosystem
-
-[Assessment + Evidence + Limitations]
-
-## 17. Pricing Model
-
-[Assessment + Evidence + Limitations]
-
-## 18. Mobile Support
-
-[Assessment + Evidence + Limitations]
-
-## 19. Performance Optimization
-
-[Assessment + Evidence + Limitations]
-
-## 20. Security & Compliance
-
-[Assessment + Evidence + Limitations]
+[Repeat structure for remaining 18 metrics: 3-20, plus new Metric 21]
 
 ---
 
@@ -404,15 +466,36 @@ Use this as a starting point for new evaluations:
 
 ---
 
+## Decision Scorecard
+
+### Critical Requirements (MUST-HAVE)
+[Table showing 4 MUST-HAVE questions and status]
+
+### Scoring Summary
+- **MUST-HAVE Score**: X/40
+- **SHOULD-HAVE Score**: Y/45
+- **NICE-TO-HAVE Score**: Z/15
+- **TOTAL SCORE**: (X+Y+Z)/100
+
+### Assessment
+[Summary of results]
+
+---
+
 ## Export Metadata
 
 **File Path**: `/evaluations/raw-threads/[product-name]-evaluation.md`  
 **Evaluation Date**: YYYY-MM-DD  
 **Evaluator**: [Name]  
-**Metrics Version**: evaluation-metrics.md v1.0  
-**Template Version**: evaluation-template.md v1.0  
+**Metrics Version**: evaluation-metrics.md v2.0  
+**Template Version**: evaluation-template.md v2.0  
+**Decision Criteria**: decision-criteria.md v2.0
 
 **Status**: Ready for synthesis via GitHub Actions
+
+**Questions Answered**: 103/103
+**Metrics Covered**: 21/21
+**Critical Requirements**: X/4 MUST-HAVE passed
 ```
 
 ---
@@ -421,23 +504,37 @@ Use this as a starting point for new evaluations:
 
 Before submitting an evaluation, verify:
 
-- [ ] All 20 metrics from evaluation-metrics.md are addressed
 - [ ] Executive summary is 2-3 sentences
-- [ ] Each metric section includes assessment, evidence, and limitations
+- [ ] All 21 metrics from evaluation-metrics.md are addressed
+- [ ] All 103 embedded decision questions are answered (across 21 metrics)
+- [ ] Each metric section includes: capability assessment, evidence, limitations
+- [ ] Each metric section includes: decision questions subsection with all embedded questions
 - [ ] All claims have citations with evidence priority (P1/P2/P3)
 - [ ] Version numbers and dates are included for all references
+- [ ] Decision Scorecard section is complete with scoring summary
 - [ ] Key Differentiators section includes strengths, limitations, and recommendations
 - [ ] Markdown formatting follows template standards
 - [ ] Technical terms use code formatting
+- [ ] Question IDs (e.g., 1.1a, 5.3) are used consistently
 - [ ] Export metadata section is complete
 - [ ] File naming follows convention: `[product-name]-evaluation.md`
 - [ ] Tone is technical, direct, balanced, and concrete
 - [ ] No marketing language or unsupported claims
 - [ ] Beta/experimental features are clearly marked
+- [ ] All decision question answers use correct answer formats from decision-criteria.md
 
 ---
 
 ## Change Log
+
+### v2.0 (2026-02-04)
+- **Major Enhancement**: Added embedded decision question sections to all metric templates
+- Integrated all 103 questions from decision-criteria.md v2.0
+- Added Decision Scorecard summary section
+- Updated template to show decision question sub-section structure
+- Added Quality Checklist items for decision questions
+- Updated Export Metadata to include decision-criteria version and question counts
+- Clarified answer format requirements for each question type
 
 ### v1.0 (2026-02-03)
 - Initial release
@@ -450,7 +547,8 @@ Before submitting an evaluation, verify:
 
 ## Related Documents
 
-- [evaluation-metrics.md](./evaluation-metrics.md) - Defines the 20 metrics to evaluate
+- [evaluation-metrics.md](./evaluation-metrics.md) - Defines the 21 metrics + 103 embedded questions
+- [decision-criteria.md](./decision-criteria.md) - Full question definitions, priorities, and scoring
 - [/evaluations/raw-threads/](./raw-threads/) - Directory for completed evaluations
 
 ---
@@ -460,4 +558,6 @@ Before submitting an evaluation, verify:
 - Reference this template version in each evaluation report for traceability
 - When template evolves, create versioned copies in `/evaluations/archive/` before updating
 - GitHub Actions synthesis script validates compliance with this template structure
+- Evaluators MUST answer all 103 decision questions to ensure comparability
+- Use decision-criteria.md v2.0 as companion reference during evaluation
 - For questions or template improvements, open an issue in the repository
