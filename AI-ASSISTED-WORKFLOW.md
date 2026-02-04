@@ -33,6 +33,18 @@ This guide shows you how to **collaborate with an AI assistant** to systematical
 
 ---
 
+## Table of Contents
+
+- [The 4-Phase AI Workflow](#the-4-phase-ai-workflow) - Starting from scratch
+- [Extending Existing Research](#extending-existing-research) - Adding options, updating evaluations ⭐ **NEW**
+- [Advanced AI Collaboration](#advanced-ai-collaboration)
+- [Tips & Best Practices](#tips-for-effective-ai-collaboration)
+- [Common Workflows](#common-workflows)
+- [Quality Checklists](#quality-checklist)
+- [Troubleshooting](#troubleshooting)
+
+---
+
 ## The 4-Phase AI Workflow
 
 ### Phase 0: Define Research Context (15-30 minutes)
@@ -340,6 +352,317 @@ See completed report: [`projects/ai-dev-tools/comparison-report.md`](projects/ai
 
 ---
 
+## Extending Existing Research
+
+### Overview
+
+**Use Case**: You've completed a comparison but need to:
+- Add a new option to evaluate
+- Re-evaluate an existing option (after updates)
+- Expand the framework (add dimensions)
+- Update priorities (requirements changed)
+
+**Why This Matters**: Research is iterative. Markets change, new products emerge, requirements evolve. The methodology supports living documents.
+
+---
+
+### Adding a New Option (30-60 minutes)
+
+**Scenario**: You've evaluated 6 AI dev tools but discovered a 7th option worth considering.
+
+#### Starting Prompt
+
+```
+Add [PRODUCT NAME] to my existing project at projects/[project-name]/.
+
+Steps:
+1. Read the framework from projects/[project-name]/framework/
+2. Evaluate [PRODUCT NAME] using those exact criteria
+3. Create evaluations/[product-name]-evaluation.md
+4. Update comparison-report.md to include this new option
+5. Recalculate rankings and comparison tables
+```
+
+#### What AI Will Do
+
+1. **Read Existing Framework**
+   - Loads `evaluation-dimensions.md` (all questions)
+   - Loads `scoring-criteria.md` (priorities)
+   - Loads `evaluation-template.md` (format)
+
+2. **Evaluate New Option**
+   - Researches [PRODUCT NAME]
+   - Answers all 80-120 questions with evidence
+   - Calculates Decision Scorecard
+   - Creates `evaluations/[product-name]-evaluation.md`
+
+3. **Read Existing Evaluations**
+   - Loads all files in `evaluations/` folder
+   - Extracts scores and key findings
+
+4. **Update Comparison Report**
+   - Adds new option to rankings table
+   - Recalculates ranks (1st, 2nd, 3rd...)
+   - Adds new column to all comparison tables
+   - Updates use case recommendations if needed
+   - Saves updated `comparison-report.md`
+
+#### Example Conversation
+
+```
+You: "Add Cline to my AI Dev Tools project."
+
+AI: "I'll evaluate Cline using your existing framework. Give me a moment 
+to research Cline and answer all 103 questions...
+
+[Research happens]
+
+Completed! Here's what I found:
+- Cline scores 78/100 (40/40 CRITICAL, 32/45 HIGH, 6/15 MEDIUM)
+- Passes all CRITICAL requirements ✅
+- Ranks 3rd overall (between Windsurf and Bolt.new)
+- Key strength: Strong Git integration
+- Key limitation: Limited language support vs. Cursor
+
+I've created evaluations/cline-evaluation.md and updated 
+comparison-report.md with Cline included in all tables."
+
+You: "Show me the updated rankings table."
+
+AI: [Displays updated table with 7 options]
+```
+
+#### Verification Checklist
+
+✅ New evaluation file created  
+✅ All questions answered with evidence  
+✅ Scores calculated correctly  
+✅ Comparison report updated  
+✅ Rankings recalculated  
+✅ New option added to all comparison tables  
+✅ Use case recommendations reviewed
+
+---
+
+### Re-Evaluating an Existing Option (30-45 minutes)
+
+**Scenario**: A tool you evaluated 6 months ago released major updates.
+
+#### Starting Prompt
+
+```
+Re-evaluate [EXISTING OPTION] in my project at projects/[project-name]/.
+
+Context:
+- [OPTION] released version [X.Y] on [DATE]
+- Major changes: [list key changes]
+
+Steps:
+1. Read the existing evaluation: evaluations/[option]-evaluation.md
+2. Research current capabilities (as of [DATE])
+3. Update answers where capabilities changed
+4. Recalculate scores
+5. Create evaluations/[option]-evaluation-v2.md (preserve original)
+6. Update comparison-report.md with new scores
+```
+
+#### What AI Will Do
+
+1. **Read Original Evaluation**
+   - Loads previous assessment
+   - Notes original scores
+
+2. **Research Current State**
+   - Searches for recent documentation
+   - Looks for version-specific changes
+   - Finds user reports from past 3 months
+
+3. **Compare Old vs. New**
+   - Identifies changed answers
+   - Calculates score delta
+   - Highlights key improvements/regressions
+
+4. **Update Comparison**
+   - Updates rankings if position changed
+   - Updates comparison tables
+   - Notes "Updated [DATE]" in report
+
+#### Example Conversation
+
+```
+You: "Re-evaluate Bolt.new. They added TypeScript support and 
+improved Git integration in v2.0 (Jan 2026)."
+
+AI: "I'll re-evaluate Bolt.new with v2.0 capabilities...
+
+[Research happens]
+
+Key changes found:
+- TypeScript support: No → Yes (Question 1.2 changed)
+- Git UI improvements: Limited → Full (Question 5.3 changed)
+- Score change: 67/100 → 74/100 (+7 points)
+- Ranking change: 5th → 4th (passed Replit)
+
+Created evaluations/bolt-new-evaluation-v2.md
+Updated comparison-report.md with new scores and rankings."
+```
+
+---
+
+### Expanding the Framework (45-60 minutes)
+
+**Scenario**: You realize you forgot to evaluate an important dimension.
+
+#### Starting Prompt
+
+```
+Expand my framework at projects/[project-name]/framework/ by adding:
+
+New Dimension: [DIMENSION NAME]
+Questions:
+1. [Question 1]
+2. [Question 2]
+3. [Question 3]
+
+Priorities:
+- Question 1: CRITICAL
+- Question 2: HIGH
+- Question 3: MEDIUM
+
+Then:
+1. Update evaluation-dimensions.md
+2. Update scoring-criteria.md
+3. Re-evaluate all options for this new dimension
+4. Update all evaluation files
+5. Update comparison-report.md
+```
+
+#### What AI Will Do
+
+1. **Update Framework Files**
+   - Adds new dimension to `evaluation-dimensions.md`
+   - Updates `scoring-criteria.md` with new priorities
+   - Adjusts scoring weights if needed
+
+2. **Re-Evaluate All Options**
+   - Answers new questions for each existing evaluation
+   - Adds new dimension section to each file
+   - Recalculates all scores
+
+3. **Update Comparison**
+   - Adds new dimension comparison table
+   - Recalculates rankings (if scores changed)
+   - Updates executive summary if rankings changed
+
+#### Example Conversation
+
+```
+You: "Add a 'Mobile Development' dimension with 3 questions:
+1. Does it support mobile app development? (CRITICAL)
+2. iOS development support? (HIGH)
+3. Android development support? (HIGH)"
+
+AI: "I'll add the Mobile Development dimension and re-evaluate all 6 tools...
+
+[Research happens]
+
+Completed! Key findings:
+- 4/6 tools support mobile development
+- Replit and Lovable have strong mobile support
+- Cursor and Windsurf have limited mobile capabilities
+- Rankings changed: Replit moved from 4th → 3rd
+
+All evaluation files and comparison report updated."
+```
+
+---
+
+### Updating Priorities (15-30 minutes)
+
+**Scenario**: Your requirements changed - something that was MEDIUM is now CRITICAL.
+
+#### Starting Prompt
+
+```
+Update priorities in my framework at projects/[project-name]/framework/:
+
+Changes:
+- Move Question [X.Y] from [OLD] to [NEW] priority
+- Move Question [A.B] from [OLD] to [NEW] priority
+
+Then:
+1. Update scoring-criteria.md
+2. Recalculate all scores in evaluation files
+3. Update comparison-report.md with new rankings
+```
+
+#### What AI Will Do
+
+1. **Update Scoring Criteria**
+   - Modifies `scoring-criteria.md`
+   - Adjusts point allocations if needed
+
+2. **Recalculate All Scores**
+   - Recalculates Decision Scorecards in all evaluations
+   - Updates each evaluation file
+
+3. **Update Rankings**
+   - Recalculates overall rankings
+   - Updates comparison report
+
+#### Example Conversation
+
+```
+You: "Move 'Vendor Lock-in' (Question 10.1) from HIGH to CRITICAL. 
+This is now a deal-breaker for us."
+
+AI: "I'll update the priority and recalculate scores...
+
+[Calculations happen]
+
+Critical change:
+- Bolt.new and Lovable now FAIL CRITICAL requirements (vendor lock-in)
+- Status changed from 'Pass with caution' → 'Disqualified'
+- New rankings: Only 4 tools qualify (Cursor, Windsurf, Replit, Base44)
+
+Updated scoring-criteria.md, all evaluation files, and comparison-report.md."
+```
+
+---
+
+### Quick Reference: Extension Prompts
+
+#### Add New Option
+```
+"Add [PRODUCT] to my [PROJECT] project."
+```
+
+#### Re-Evaluate After Updates
+```
+"Re-evaluate [PRODUCT] in my [PROJECT]. They released [VERSION] with [CHANGES]."
+```
+
+#### Add Dimension
+```
+"Add '[DIMENSION]' dimension to my [PROJECT] framework with these questions: [LIST]."
+```
+
+#### Change Priorities
+```
+"Move Question [X.Y] from [OLD] to [NEW] priority in my [PROJECT] framework."
+```
+
+#### Batch Update
+```
+"Update my [PROJECT] project:
+1. Add [PRODUCT A]
+2. Re-evaluate [PRODUCT B] (v2.0)
+3. Add '[DIMENSION]' dimension
+4. Move Question [X.Y] to CRITICAL"
+```
+
+---
+
 ## Advanced AI Collaboration
 
 ### Iterative Refinement
@@ -471,6 +794,29 @@ Day 2:
 6. [1 hour] Team discussion → Final recommendations
 ```
 
+### Living Document (Ongoing)
+
+**Best for**: Long-term research, market monitoring, continuous evaluation
+
+```
+Initial (Week 1):
+1. Complete Phases 0-3 with 5 initial options
+
+Month 2:
+2. Add 2 new market entrants
+3. Re-evaluate 1 option that released major update
+
+Quarter 2:
+4. Add 'Security Compliance' dimension (new requirement)
+5. Move 2 questions from MEDIUM to CRITICAL
+6. Remove 1 discontinued product
+
+Ongoing:
+7. Monthly: Check for product updates
+8. Quarterly: Re-evaluate top 3 options
+9. Annually: Full framework review
+```
+
 ---
 
 ## Quality Checklist
@@ -508,6 +854,13 @@ Before finalizing, verify with AI:
 - [ ] Use case recommendations provided
 - [ ] Decision framework included
 - [ ] Executive summary clear
+
+### Extensions ✅
+- [ ] New evaluations use same framework
+- [ ] Scores recalculated after changes
+- [ ] Comparison report updated
+- [ ] Version history maintained
+- [ ] Update dates documented
 
 ---
 
@@ -562,6 +915,19 @@ Emphasize:
 Use projects/ai-dev-tools/comparison-report.md as format reference."
 ```
 
+### Adding New Option (Extension)
+
+```
+"Add ClickUp to my project management tools comparison."
+```
+
+### Re-Evaluating (Extension)
+
+```
+"Re-evaluate Linear in my project. They released v2.5 with 
+improved API and Slack integration."
+```
+
 ---
 
 ## Troubleshooting
@@ -602,6 +968,20 @@ You: "Create an executive summary version (2 pages max) with:
 - Rankings table
 - Critical findings
 - Top recommendation only"
+```
+
+### "I added an option but comparison wasn't updated"
+
+```
+You: "Update comparison-report.md to include [NEW OPTION]. 
+Add to rankings table and all comparison tables."
+```
+
+### "Scores changed but rankings are wrong"
+
+```
+You: "Recalculate rankings in comparison-report.md based on 
+updated scores in all evaluation files."
 ```
 
 ---
@@ -646,5 +1026,5 @@ Still stuck? [Create an issue](../../issues) or reach out to the community.
 ---
 
 **Methodology Version**: 1.0  
-**AI Workflow Version**: 1.0  
+**AI Workflow Version**: 1.1  
 **Last Updated**: 2026-02-04
